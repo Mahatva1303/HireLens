@@ -1,0 +1,134 @@
+.gif-like {
+  width: 67%;
+  height: auto;
+  border-radius: 20px;
+  object-fit: cover;
+  display: block;
+  margin-left: 30px;
+
+}
+
+.left {
+  flex: 1;
+}
+
+.review-box {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 15px;
+  padding: 40px;
+  width: 90%;
+  max-width: 350px;
+  text-align: center;
+  box-shadow: 0 0 30px rgba(0,0,0,0.2);
+  margin-right: 80px;
+}
+
+.review-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1px;
+  height: 100vh;
+}
+.review-box h2 {
+  color: #c24545;
+  margin-bottom: 20px;
+}
+.review-box p {
+  color: #000;
+  margin-bottom: 30px;
+}
+.review-form textarea {
+  width: 100%;
+  height: 100px;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  resize: none;
+  margin-bottom: 20px;
+}
+.review-form button {
+  width: 100%;
+  padding: 12px;
+  background: #22c55e;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+.footer {
+  text-align: center;
+  padding: 15px;
+  background-color: #f1f1f1;
+  color: #333;
+  bottom: 0;
+  width: 100%;
+}
+
+
+
+
+.navbar {
+  display: flex;                 /* arrange in one line */
+  justify-content: space-between;/* spread logo, links, button */
+  align-items: center;           /* vertical center */
+  padding: 15px 60px;            /* spacing inside navbar */
+  background-color: #fff;        /* white background */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.logo1 {
+  font-size: 20px;
+  font-weight: bold;
+}
+.nav-links {
+  display: flex;
+  gap: 25px;                     /* space between links */
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #000;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #007bff;
+}
+
+.login-btn{
+    padding: 10px 20px;
+    background-color: black;  
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.login-btn:hover {
+  background-color: #333;
+}
+
+.mainlogo{
+    width: 50px;
+    height: 25px;
+    margin-right: 7px;
+    /* padding: 20px 20px; */
+}
+
+.review-box button:hover {
+  background: #16a34a;
+}
+.review-box textarea:focus {
+  outline: none;
+  border-color: #22c55e;
+  box-shadow: 0 0 5px rgba(34, 197, 94, 0.5);
+}
+.review-box input::placeholder,
+.review-box textarea::placeholder {
+  color: #999;
+}

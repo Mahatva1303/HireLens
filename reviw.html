@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="review.css">
+</head>
+<body>
+
+<!-- header starts -->
+<header class="navbar">
+  <div class="logo1"><img src="images/hirelens-high-resolution-logo-transparent.png" class="mainlogo" alt="Logo"/>HireLens</div>
+
+  <nav class="nav-links">
+    <a href="landing.html">Home</a>
+    <!-- <a href="">Create CV/Resume</a> -->
+    <a href="public/resumechecker.html">Resume Checker</a>
+    <a href="reviw.html">Review Us</a>
+  </nav>
+  <a href="login.html"><button class="login-btn">Login</button></a>
+</header>
+<!-- header ends -->
+
+
+    <div class="review-section">
+        <div class="left">
+           <video autoplay loop muted playsinline class="gif-like">
+            <source src="images/Tq0XMI8w6MJr68T7I8.mp4" type="video/mp4" />
+           </video>
+        </div>
+        <div class="review-box">
+        <h1>Review Us</h1>
+        <p>We value your feedback! Please take a moment to review our services.</p>
+        <form action="#" method="post" class="review-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="rating">Rating:</label>
+            <select id="rating" name="rating" required>
+                <option value="">Select</option>
+                <option value="5">5 - Excellent</option>
+                <option value="4">4 - Very Good</option>
+                <option value="3">3 - Good</option>
+                <option value="2">2 - Fair</option>
+                <option value="1">1 - Poor</option>
+            </select>
+
+            <label for="comments">Comments:</label>
+            <textarea id="comments" name="comments" rows="4" required></textarea>
+
+            <button type="submit">Submit Review</button>
+        </form>
+        </div>
+    </div>
+<footer class="footer">
+    <p>&copy; 2024 HiReLens. All rights reserved.</p>
+</footer>
+</body>
+</html>
