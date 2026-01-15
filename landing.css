@@ -1,0 +1,239 @@
+.navbar {
+  display: flex;                 /* arrange in one line */
+  justify-content: space-between;/* spread logo, links, button */
+  align-items: center;           /* vertical center */
+  padding: 15px 60px;            /* spacing inside navbar */
+  background-color: #fff;        /* white background */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.logo1 {
+  font-size: 20px;
+  font-weight: bold;
+}
+.nav-links {
+  display: flex;
+  gap: 25px;                     /* space between links */
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #000;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #007bff;
+}
+
+.login-btn{
+    padding: 10px 20px;
+    background-color: black;  
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.login-btn:hover {
+  background-color: #333;
+}
+
+.mainlogo{
+    width: 50px;
+    height: 25px;
+    margin-right: 7px;
+    /* padding: 20px 20px; */
+}
+
+.main-heading {
+    text-align: left-margin;
+    margin-top: 10px;
+    font-size: 38px;
+    color: black;
+    padding-left: 20px;
+}
+
+
+
+
+.main-para{
+    text-align: left-margin;
+    margin-top: 20px;
+    font-size: 20px;
+    color: black;
+    padding-left: 6px;
+}
+
+.gif-like {
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+  object-fit: cover;
+  display: block;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 93%;
+  gap: 120px; /* space between gif and glass box */
+}
+
+.left {
+  flex: 1;
+}
+
+button {
+  background: #22c55e;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.glass-box {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  color: #000;
+  width: 100%;
+  max-width: 450px;
+}
+
+.right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+.circle {
+  width: 40px;               /* size of the circle */
+  height: 40px;
+  background-color: #c8f1e3;  /* soft mint green background */
+  color: #0e7b57;             /* darker green text */
+  border-radius: 50%;         /* makes it perfectly round */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 20px;
+  font-family: 'Poppins', sans-serif;
+}
+.circle {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.logo-slider {
+  width: 90%;
+  overflow: hidden;
+  position: relative;
+  box-sizing: border-box;
+}
+.Clogos {
+  display: flex;
+  gap: 50px;
+  animation: slide 20s linear infinite;
+}
+
+.Clogos img:hover {
+  transform: scale(1.1);
+}
+.Clogos img {
+  height: 60px;
+  width: auto;
+  transition: transform 0.3s;
+}
+
+
+.Clogos::after {
+  content: "";
+  display: flex;
+  gap: 60px;
+  animation: inherit;
+}
+
+@keyframes slide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.pas{
+    margin-top: 60px;
+}
+
+
+.container1 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 200px; /* space between gif and glass box */
+  padding: 30px 70px ;
+}
+
+.left1 {
+  flex: 1;
+   display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 30px 40px ;
+}
+
+.right1 {
+  flex: 1;
+  padding: 30px 40px  ;
+
+}
+
+.footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #f1f1f1;
+    color: #555;
+    margin-top: 40px;
+}
+
+.spacer{
+    gap: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center ;
+}
+
+/* .Profile{
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+    transition: color 0.3s;
+} */
+/* .Profile:hover {
+    color: #007bff;
+      background: black;
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 13px;
+   font-size: 16px;
+  cursor: pointer;
+  margin-top: 2px; 
+} */
