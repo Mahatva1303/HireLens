@@ -1,0 +1,143 @@
+body {
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(135deg, #74ABE2, #5563DE);
+  /* display: flex; */
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.profile-container {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  color: white;
+  width: 390px;
+  margin-top: 30px;
+}
+
+.profile-card video {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid white;
+  transition: transform 0.3s ease;
+}
+
+.profile-card video:hover {
+  transform: scale(1.05);
+}
+
+.avatar-choice {
+  margin-top: 20px;
+}
+
+.avatar-options {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 10px;
+}
+
+.avatar-option {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.avatar-option:hover {
+  transform: scale(1.1);
+  border: 2px solid white;
+}
+
+.avatar-option.selected {
+  border: 3px solid #00ffcc;
+  box-shadow: 0 0 10px #00ffcc;
+}
+
+h3, p {
+  margin-top: 15px;
+}
+
+.gif-like {
+  width: 65%;
+  height: auto;
+  border-radius: 20px;
+  object-fit: cover;
+  display: block;
+  background-color: transparent;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 93%;
+  gap: 120px; /* space between gif and glass box */
+}
+
+
+
+.navbar {
+  display: flex;                 /* arrange in one line */
+  justify-content: space-between;/* spread logo, links, button */
+  align-items: center;           /* vertical center */
+  padding: 15px 60px;            /* spacing inside navbar */
+  background-color: #fff;        /* white background */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: bold;
+}
+.nav-links {
+  display: flex;
+  gap: 25px;                     /* space between links */
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #000;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #007bff;
+}
+
+.login-btn{
+    padding: 10px 20px;
+    background-color: black;  
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.login-btn:hover {
+  background-color: #333;
+}
+
+.mainlogo{
+    width: 50px;
+    height: 25px;
+    margin-right: 7px;
+    /* padding: 20px 20px; */
+}
+
+.gifprofile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+
