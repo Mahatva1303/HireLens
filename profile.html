@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="profile.css">
+</head>
+
+<body>
+
+<!-- header starts -->
+ <header class="navbar">
+  <div class="logo1"><img src="images/hirelens-high-resolution-logo-transparent.png" class="mainlogo" alt="Logo"/>HireLens</div>
+
+  <nav class="nav-links">
+    <a href="landing.html">Home</a>
+    <a href="public/resumechecker.html">Resume Checker</a>
+    <a href="reviw.html">Review Us</a>
+  </nav>
+  <a href="login.html"><button class="login-btn">Login</button></a>
+</header>
+<!-- header ends -->
+
+
+<div class="container">
+      <div class="gifprofile">
+         <video autoplay loop muted playsinline class="gif-like">
+      <source src="images/Dm22X5QeFw6j8Eq6L8.mp4" type="video/mp4" />
+    </video>
+    </div>
+
+    <div class="profile-container">
+    <h2>User Profile</h2>
+    <div class="profile-card">
+      <!-- Main profile avatar (video) -->
+     <video id="profileVideo" autoplay loop muted playsinline>
+           <source src="images/L3IkWq4NfN622SjUD7.mp4" type="video/mp4">
+           Your browser does not support the video tag.
+     </video>
+
+
+      <div class="avatar-choice">
+        <p>Select your avatar:</p>
+        <div class="avatar-options">
+          <video src="images/26LRRG8psAXG2zse13.mp4" alt="Boy Avatar" id="boyAvatar" class="avatar-option" autoplay loop muted></video>
+          <video src="images/62G3VjIXEI0xS2EkE8.mp4" alt="Girl Avatar" id="girlAvatar" class="avatar-option" autoplay loop muted></video>
+        </div>
+      </div>
+
+      <h3 id="displayName"></h3>
+      <p id="displayEmail"></p>
+    </div>
+  </div>
+</div>
+
+  <script src ="profile.js"></script>
+    
+</body>
+</html>
