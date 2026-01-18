@@ -73,13 +73,6 @@ HireLens aims to bridge the gap between **job seekers and ATS systems** by provi
 
 ---
 
-## 🤝 Contributing
-
-Contributions are welcome!  
-Feel free to fork this repository, open issues, or submit pull requests.
-
----
-
 ## 📌 Disclaimer
 
 HireLens provides AI-based analysis and suggestions.  
