@@ -1,6 +1,9 @@
 # HireLens
 An Ai powered resume checker HireLens helps resume improving there ats score by providing ats scores and usefull ai powered suggestion for improving its ats score also provide ats score and tips for company specific
 
+![Profile Page](assest/profile.gif)
+
+
 # 🚀 HireLens – AI Powered Resume Checker
 
 HireLens is an **AI-based Resume Analysis Platform** designed to help job seekers improve their resumes and increase their chances of passing **Applicant Tracking Systems (ATS)** used by companies.
