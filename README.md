@@ -38,6 +38,7 @@ HireLens currently includes **4 main pages**:
   <br>
   <em>Login Page</em>
 </p>
+
 ---
 
 ## 🛠️ Tech Stack
