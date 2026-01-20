@@ -40,11 +40,12 @@ HireLens currently includes **4 main pages**:
 </p>
 
 
-<p align="center">
+<p align="left">
   <img src="assest/Resumeai.png" width="450">
   <br>
   <em>Resume Page</em>
 </p>
+
 ---
 
 ## 🛠️ Tech Stack
