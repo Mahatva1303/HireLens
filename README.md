@@ -47,7 +47,7 @@ HireLens currently includes **4 main pages**:
 </p>
 
 <p align="right">
-  <img src="assest/review.gif" width="220" />
+  <img src="assest/review.gif" />
 </p>
 
 
