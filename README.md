@@ -46,6 +46,12 @@ HireLens currently includes **4 main pages**:
   <em>Resume Page</em>
 </p>
 
+<p align="right">
+  
+![Profile Page](assest/review.gif)
+
+</p>
+
 ---
 
 ## 🛠️ Tech Stack
