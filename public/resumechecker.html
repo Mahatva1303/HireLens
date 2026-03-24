@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resume Checker | HireLens</title>
+  <link rel="stylesheet" href="resumechecker.css">
+</head>
+<body>
+
+  <!-- header starts -->
+  <header class="navbar">
+    <div class="logo1">
+      <img src="../images/hirelens-high-resolution-logo-transparent.png" class="mainlogo" alt="Logo">
+      HireLens
+    </div>
+
+    <nav class="nav-links">
+      <a href="../landing.html">Home</a>
+      <a href="resumechecker.html">Resume Checker</a>
+      <a href="../reviw.html">Review Us</a>
+    </nav>
+    <a href="../login.html"><button class="login-btn">Login</button></a>
+  </header>
+  <!-- header ends -->
+
+  <main>
+    <h2 class="page-title">AI-Powered Resume Checker</h2>
+
+    <div class="upload-section">
+      <!-- Left video animation -->
+      <div class="left">
+        <video autoplay loop muted playsinline class="gif-like">
+          <source src="images/Speedometer.mp4" type="video/mp4">
+        </video>
+      </div>
+
+      <!-- Upload box -->
+      <div class="upload-box">
+        <p>Upload your resume to check its ATS score and get AI-driven improvement tips.</p>
+        <input type="file" id="resumeUpload" accept=".pdf,.doc,.docx">
+        <button class="upload-btn">Upload Resume</button>
+      </div>
+    </div>
+
+    <!-- Animated Loader -->
+    <div class="loader-overlay hidden" id="loader">
+      <div class="loader"></div>
+      <p>Analyzing your resume...</p>
+    </div>
+
+    <!-- Result Section -->
+    <section id="result-container" class="result-section hidden"></section>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2024 HireLens. All rights reserved.</p>
+  </footer>
+
+  <script src="resumechecker.js"></script>
+</body>
+</html>
