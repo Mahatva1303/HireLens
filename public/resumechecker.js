@@ -83,7 +83,7 @@ async function generateSummary() {
 
     console.log("Summary:", data);
 
-    // 🎨 Show summary in UI instead of alert
+  
     let summaryBox = document.getElementById("summaryBox");
 
     if (!summaryBox) {
