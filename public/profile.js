@@ -3,17 +3,17 @@ import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/
 import { signOut } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
 // your firebase config
 const firebaseConfig = {
-  apiKey: "AIzaSyBnCO-p3ulx6mM0GSlxTJ3fqDXKoxZ2Se8",
-  authDomain: "hirelens-ec8b2.firebaseapp.com",
-  projectId: "hirelens-ec8b2",
-  appId: "1:64689401973:web:644a287658271daa58083c"
+  apiKey: "Your API KEY",
+  authDomain: "YOUR AUTHENTICATION",
+  projectId: "YOUR PROJECTID",
+  appId: "YOUR APP ID"
 };
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
 onAuthStateChanged(auth, (user) => {
-  console.log("USER:", user); // 👈 check this
+  console.log("USER:", user); 
 
   if (user) {
     document.getElementById("displayName").innerText =
