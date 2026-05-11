@@ -11,10 +11,10 @@ import {
 
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBnCO-p3ulx6mM0GSlxTJ3fqDXKoxZ2Se8",
-  authDomain: "hirelens-ec8b2.firebaseapp.com",
-  projectId: "hirelens-ec8b2",
-  appId: "1:64689401973:web:644a287658271daa58083c"
+  apiKey: "YOUR API",
+  authDomain: "YOUR AUTHEN",
+  projectId: "YOUR PROJECT ID",
+  appId: "YOUR APP ID"
 };
 
 const app = initializeApp(firebaseConfig);
