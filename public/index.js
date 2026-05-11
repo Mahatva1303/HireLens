@@ -1,8 +1,4 @@
-/* ============================================================
-   HIRELENS — script.js
-   ============================================================ */
 
-// ── Hide placeholder overlays once a video loads ──────────────
 document.querySelectorAll('.media-wrapper video').forEach((video) => {
   const wrapper = video.closest('.media-wrapper');
   const placeholder = wrapper ? wrapper.querySelector('.media-placeholder') : null;
