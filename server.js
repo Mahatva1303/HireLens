@@ -154,7 +154,7 @@ app.post("/generate-summary", async (req, res) => {
       return res.status(400).json({ error: "No text provided" });
     }
 
-    console.log("➡️ Generating summary using Groq");
+    console.log(" Generating summary using Groq");
 
     const response = await groq.chat.completions.create({
       messages: [
@@ -171,7 +171,7 @@ app.post("/generate-summary", async (req, res) => {
     res.json({ summary });
 
   } catch (err) {
-    console.error("❌ GROQ SUMMARY ERROR:", err.message);
+    console.error(" GROQ SUMMARY ERROR:", err.message);
     res.status(500).json({ error: "Summary failed" });
   }
 });
@@ -209,15 +209,15 @@ ${text}
     res.json({ result });
 
   } catch (err) {
-    console.error("❌ GROQ MATCH ERROR:", err.message);
+    console.error(" GROQ MATCH ERROR:", err.message);
     res.status(500).json({ error: "Match failed" });
   }
 });
 const PORT = 5000;
 
 app.listen(PORT, () => {
-  console.log(`🚀 Server running at: http://localhost:${PORT}`);
-  console.log(`👉 Open Login Page: http://localhost:${PORT}`);
+  console.log(` Server running at: http://localhost:${PORT}`);
+  console.log(` Open Login Page: http://localhost:${PORT}`);
 });
 
 
