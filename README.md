@@ -88,10 +88,10 @@ Users can upload their resumes in PDF format, receive ATS scores, strengths, imp
 │   PROFILE    │  │ RESUME CHECKER│  │      REVIEW US       │
 │              │  │               │  │                      │
 │ • Avatar     │  │ Upload PDF    │  │ • Write a Review     │
-│   Selector  │  │     │         │  │ • Give Star Rating   │
-│ • Name      │  │     ▼         │  │ • View All Reviews   │
-│ • Email     │  │ ATS Engine    │  │                      │
-│             │  │ Scores Resume │  │  (MongoDB Database)  │
+│   Selector   │  │     │         │  │ • Give Star Rating   │
+│ • Name       │  │     ▼         │  │ • View All Reviews   │
+│ • Email      │  │ ATS Engine    │  │                      │
+│              │  │ Scores Resume │  │  (MongoDB Database)  │
 └──────────────┘  │     │         │  └──────────────────────┘
                   │     ▼         │
                   │  ┌──────────────────────────────┐
@@ -113,9 +113,9 @@ Users can upload their resumes in PDF format, receive ATS scores, strengths, imp
                   │  │  generates  │   │ Job Role            │
                   │  │professional │   │      │              │
                   │  │  summary    │   │      ▼              │
-                  │  └─────────────┘   │  Strong Match     │
-                  │                    │   Partial Match   │
-                  │                    │  Weak Match       │
+                  │  └─────────────┘   │  Strong Match       │
+                  │                    │   Partial Match     │
+                  │                    │  Weak Match         │
                   └────────────────────┴─────────────────────┘
                   
 ```
