@@ -57,18 +57,13 @@ HireLens currently includes **4 main pages**:
 
 ## 🛠️ Tech Stack
 
-### Frontend
-- HTML  
-- CSS  
-- JavaScript  
-- Modern UI components for clean and responsive design  
-
-### Backend
-- Server-side logic for resume processing
-- AI integration for resume analysis and scoring
-- Secure authentication handling
-
-*(Backend and Frontend are fully separated for scalability and maintainability.)*
+Frontend       : HTML, CSS, JavaScript
+Backend        : Node.js, Express.js
+Authentication : Firebase Authentication
+Database       : MongoDB
+AI API         : Groq API
+Resume Parsing : PDF Processing
+Deployment     : Vercel / Render
 
 ---
 
