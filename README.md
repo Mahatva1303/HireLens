@@ -34,20 +34,20 @@ HireLens currently includes **4 main pages**:
 ---
 ## 📸 Screenshot
 <p align="center">
-  <img src="assest/Screenshot 2026-01-19 222431.png" width="750">
+  <img src="images/Screenshot 2026-05-14 101118.png" width="750">
   <br>
-  <em>Login Page</em>
+  <em> Home Page</em>
 </p>
 
 
 <p align="center">
-  <img src="assest/Resumeai.png" width="450">
+  <img src="images/Screenshot 2026-05-14 101130.png" width="450">
   <br>
   <em>Resume Page</em>
 </p>
 
 <p align="center">
-  <img src="assest/review.gif" />
+  <img src="images/Screenshot 2026-04-20 234215.png" />
   <br>
   <em>Review us Page</em>
 </p>
