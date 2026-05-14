@@ -43,7 +43,7 @@ HireLens currently includes **4 main pages**:
 <p align="center">
   <img src="images/Screenshot 2026-05-14 101130.png" width="450">
   <br>
-  <em>Resume Page</em>
+  <em> Login Page</em>
 </p>
 
 <p align="center">
