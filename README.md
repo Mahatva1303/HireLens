@@ -55,6 +55,21 @@ Users can upload their resumes in PDF format, receive ATS scores, strengths, imp
 
 ---
 
+
+## ⚙️ How It Works
+
+### Resume Checker
+1. User uploads their resume in **PDF format**
+2. Our custom ATS engine parses and scores the resume
+3. Results show:
+   -  ATS Score
+   -  Strengths
+   -  Areas of Improvement
+4. Click **AI Summary** → Groq API generates a professional resume summary
+5. Click **Job Matching** → Enter company name & job role → Get match result (e.g. *Strong Match*) with a detailed summary
+
+---
+
 ## 🎯 Project Goal
 
 HireLens aims to bridge the gap between **job seekers and ATS systems** by providing:
@@ -79,6 +94,8 @@ If you like this project, don’t forget to **star ⭐ the repository**!
 
 ### 🔗 Project Name: **HireLens**
 *See your resume the way recruiters do.*
+
+---
 
 ### 👨‍💻 Developed By
 - Mahatva Agarwal
