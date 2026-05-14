@@ -7,6 +7,19 @@ Users can upload their resumes in PDF format, receive ATS scores, strengths, imp
 
 ---
 
+## 📋 Table of Contents
+
+- [About](#about)
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Pages](#pages)
+- [How It Works](#how-it-works)
+- [Getting Started](#getting-started)
+- [Environment Variables](#environment-variables)
+
+---
+
+
 ## ✨ Features
 
 -  **ATS Resume Scoring** — Our own built-in ATS engine analyzes your resume and gives an ATS score
