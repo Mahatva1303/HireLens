@@ -1,5 +1,4 @@
-# HireLens
-## AI-Powered Resume Analyzer & Job Matching Platform 
+# HireLens-AI-Powered Resume Analyzer & Job Matching Platform 
 HireLens is an intelligent web application designed to help users improve their resumes and analyze job compatibility using AI-powered insights and a custom-built ATS (Applicant Tracking System).
 
 Users can upload their resumes in PDF format, receive ATS scores, strengths, improvement suggestions, AI-generated summaries, and job matching analysis based on company and role requirements.
