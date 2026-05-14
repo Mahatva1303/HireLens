@@ -57,13 +57,15 @@ HireLens currently includes **4 main pages**:
 
 ## 🛠️ Tech Stack
 
-Frontend       : HTML, CSS, JavaScript
-Backend        : Node.js, Express.js
-Authentication : Firebase Authentication
-Database       : MongoDB
-AI API         : Groq API
-Resume Parsing : PDF Processing
-Deployment     : Vercel / Render
+| Layer | Technology |
+|---|---|
+| **Frontend** | HTML, CSS, JavaScript |
+| **Backend** | Node.js, Express.js |
+| **Authentication** | Firebase Authentication |
+| **Database** | MongoDB |
+| **AI API** | Groq API |
+| **Resume Parsing** | PDF Processing |
+| **Deployment** | Vercel / Render |
 
 ---
 
