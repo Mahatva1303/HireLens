@@ -187,6 +187,8 @@ Total Score: **100 points** across 4 categories.
 | Verbs Detected (any of these count) |
 |---|
 | `developed`, `built`, `designed`, `implemented`, `led`, `managed`, `optimized`, `architected`, `deployed`, `automated`, `reduced`, `increased`, `delivered`, `collaborated`, `launched`, `created` |
+
+---
  
 ### Quantified Achievements — 10 points (3 pts each, max 10)
  
@@ -197,6 +199,8 @@ Total Score: **100 points** across 4 categories.
 | `\$[\d,]+` | Saved **$50,000** annually |
 | `\d+x` | Reduced load time by **3x** |
 | `\d+ users/clients/teams/systems` | Managed **5 teams** |
+
+---
  
 ### Resume Length — 5 points
  
