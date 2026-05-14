@@ -146,6 +146,80 @@ Users can upload their resumes in PDF format, receive ATS scores, strengths, imp
 
 ---
 
+#  Resume ATS Scoring Criteria
+ 
+Total Score: **100 points** across 4 categories.
+ 
+---
+ 
+## 1.  Section Detection — 25 points
+ 
+| Section | Keywords Checked | Points |
+|---|---|---|
+| Experience | `experience`, `work history`, `employment` | 8 |
+| Skills | `skills`, `technical skills`, `core competencies` | 6 |
+| Education | `education`, `academic background`, `degree` | 5 |
+| Projects | `projects`, `personal projects`, `key projects` | 4 |
+| Summary | `summary`, `objective`, `profile`, `about me` | 2 |
+| **Total** | | **25** |
+ 
+---
+ 
+## 2.  Keyword Scoring — 30 points (capped)
+ 
+> First 3 matches per category = full weight. Extra matches = half weight. Max 30 pts total.
+ 
+| Category | Weight per Keyword | Keywords |
+|---|---|---|
+| Core Languages | 3 | `javascript`, `python`, `java`, `c++`, `typescript`, `go`, `rust`, `swift`, `kotlin` |
+| DevOps & Cloud | 3 | `docker`, `aws`, `git`, `kubernetes`, `ci/cd`, `linux`, `azure`, `gcp` |
+| Web Technologies | 2 | `react`, `node`, `html`, `css`, `angular`, `vue`, `nextjs`, `express`, `django`, `flask` |
+| Databases | 2 | `sql`, `mongodb`, `postgresql`, `mysql`, `redis`, `firebase` |
+| Concepts | 2 | `api`, `rest`, `agile`, `oop`, `microservices`, `machine learning`, `data structures` |
+| **Total** | | **30 (capped)** |
+ 
+---
+ 
+## 3.  Writing Quality — 25 points
+ 
+### Action Verbs — 10 points (2 pts each, max 10)
+ 
+| Verbs Detected (any of these count) |
+|---|
+| `developed`, `built`, `designed`, `implemented`, `led`, `managed`, `optimized`, `architected`, `deployed`, `automated`, `reduced`, `increased`, `delivered`, `collaborated`, `launched`, `created` |
+ 
+### Quantified Achievements — 10 points (3 pts each, max 10)
+ 
+| Pattern | Example |
+|---|---|
+| `\d+%` | Improved performance by **40%** |
+| `\d+\+` | Served **10,000+** users |
+| `\$[\d,]+` | Saved **$50,000** annually |
+| `\d+x` | Reduced load time by **3x** |
+| `\d+ users/clients/teams/systems` | Managed **5 teams** |
+ 
+### Resume Length — 5 points
+ 
+| Word Count | Points | Feedback |
+|---|---|---|
+| 300 – 800 words | 5 | Good length |
+| < 300 words | 0 |  Too short |
+| > 800 words | 0 |  Too long |
+ 
+---
+ 
+## 4.  Contact & Format — 10 points
+ 
+| Item | Pattern Checked | Points |
+|---|---|---|
+| Email Address | `@domain.ext` format | 4 |
+| LinkedIn URL | `linkedin.com/in/` | 3 |
+| GitHub URL | `github.com/` | 3 |
+| **Total** | | **10** |
+ 
+---
+
+
 ##  Project Goal
 
 HireLens aims to bridge the gap between **job seekers and ATS systems** by providing:
@@ -184,6 +258,6 @@ MONGODB_URI=your_mongodb_connection_string
 FIREBASE_API_KEY=your_firebase_api_key
 ````
 
-### 👨‍💻 Developed By
+###  Developed By
 - Mahatva Agarwal
 - HireLens Project – AI Resume Analyzer & Job Matcher
