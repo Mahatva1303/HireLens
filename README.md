@@ -94,29 +94,30 @@ Users can upload their resumes in PDF format, receive ATS scores, strengths, imp
 │              │  │ Scores Resume │  │  (MongoDB Database)  │
 └──────────────┘  │     │         │  └──────────────────────┘
                   │     ▼         │
-                  │  ┌──────────────────────────────┐
-                  │  │         RESULTS              │
-                  │  ├──────────┬─────────┬─────────┤
-                  │  │ATS Score │Strengths│ Keyword │
-                  │  │          │  &      │ Matches │
-                  │  │          │Improve- │         │
-                  │  │          │ments    │         │
-                  │  └──────────┴────┬────┴─────────┘
-                  │                  │
-                  │       ┌──────────┴──────────┐
-                  │       │                     │
-                  │       ▼                     ▼
-                  │  ┌─────────────┐   ┌─────────────────────┐
-                  │  │ AI SUMMARY  │   │    JOB MATCHING     │
-                  │  │             │   │                     │
-                  │  │  Groq API   │   │ Enter Company +     │
-                  │  │  generates  │   │ Job Role            │
-                  │  │professional │   │      │              │
-                  │  │  summary    │   │      ▼              │
-                  │  └─────────────┘   │  Strong Match       │
-                  │                    │   Partial Match     │
-                  │                    │  Weak Match         │
-                  └────────────────────┴─────────────────────┘
+                  └───────────────┘
+                     ┌──────────────────────────────┐
+                     │         RESULTS              │
+                     ├──────────┬─────────┬─────────┤
+                     │ATS Score │Strengths│ Keyword │
+                     │          │  &      │ Matches │
+                     │          │Improve- │         │
+                     │          │ments    │         │
+                     └──────────┴────┬────┴─────────┘
+                                     │
+                          ┌──────────┴──────────┐
+                          │                     │
+                          ▼                     ▼
+                     ┌─────────────┐   ┌─────────────────────┐
+                     │ AI SUMMARY  │   │    JOB MATCHING     │
+                     │             │   │                     │
+                     │  Groq API   │   │ Enter Company +     │
+                     │  generates  │   │ Job Role            │
+                     │professional │   │      │              │
+                     │  summary    │   │      ▼              │
+                     └─────────────┘   │  Strong Match       │
+                                       │   Partial Match     │
+                                       │  Weak Match         │
+                                       ┴─────────────────────┘
                   
 ```
 
@@ -125,15 +126,15 @@ Users can upload their resumes in PDF format, receive ATS scores, strengths, imp
 1. User uploads their resume in **PDF format**
 2. The custom ATS engine parses and scores the resume
 3. Results display:
-   - 📊 ATS Score
-   - 💪 Strengths & Areas of Improvement
-   - 🔑 Matched Keywords
+   -  ATS Score
+   -  Strengths & Areas of Improvement
+   -  Matched Keywords
 4. Click **AI Summary** → Groq API generates a professional resume summary
 5. Click **Job Matching** → Enter company name & job role → Get *Strong / Partial / Weak Match* with a detailed breakdown
 
 
 
-## ⚙️ How It Works
+##  How It Works
 
 ### Resume Checker
 1. User uploads their resume in **PDF format**
@@ -147,7 +148,7 @@ Users can upload their resumes in PDF format, receive ATS scores, strengths, imp
 
 ---
 
-## 🎯 Project Goal
+##  Project Goal
 
 HireLens aims to bridge the gap between **job seekers and ATS systems** by providing:
 - Clear insights into resume quality  
@@ -175,7 +176,7 @@ npm start
 
 ---
 
-## 🔑 Environment Variables
+##  Environment Variables
 
 Create a `.env` file in the root directory and add the following:
 
@@ -184,26 +185,6 @@ GROQ_API_KEY=your_groq_api_key
 MONGODB_URI=your_mongodb_connection_string
 FIREBASE_API_KEY=your_firebase_api_key
 ````
-
----
-
-## 📌 Disclaimer
-
-HireLens provides AI-based analysis and suggestions.  
-Final hiring decisions depend on recruiters and company-specific ATS systems.
-
----
-
-## ⭐ Show Your Support
-
-If you like this project, don’t forget to **star ⭐ the repository**!
-
----
-
-### 🔗 Project Name: **HireLens**
-*See your resume the way recruiters do.*
-
----
 
 ### 👨‍💻 Developed By
 - Mahatva Agarwal
