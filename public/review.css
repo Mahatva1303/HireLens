@@ -1,0 +1,118 @@
+body {
+  margin: 0;
+  font-family: Arial;
+  background: linear-gradient(to right, #dfe9f3, #ffffff);
+}
+
+.container {
+  display: flex;
+  width: 80%;
+  margin: 50px auto;
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.left {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.left video {
+  width: 80%;
+}
+
+.right {
+  width: 50%;
+  padding: 20px;
+}
+
+input, textarea {
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background: #2b7cff;
+  color: white;
+  border: none;
+}
+
+.stars span {
+  font-size: 25px;
+  cursor: pointer;
+  color: gray;
+}
+
+.link {
+  color: blue;
+  cursor: pointer;
+}
+
+.review-card {
+  border-bottom: 1px solid #ccc;
+  padding: 10px;
+}
+
+
+
+
+
+
+
+
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  background: white;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* LEFT SIDE */
+.nav-left {
+  display: flex;
+  align-items: center;
+}
+
+.nav-left img {
+  width: 40px;
+  margin-right: 10px;
+}
+
+.company-name {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* RIGHT SIDE */
+.nav-right a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: black;
+  font-weight: 500;
+}
+
+.nav-right a:hover {
+  color: #2b7cff;
+}
+
+/* LOGIN BUTTON */
+.login-btn {
+  padding: 8px 15px;
+  background: black;
+  color: white !important;
+  border-radius: 5px;
+}
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
