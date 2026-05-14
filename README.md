@@ -1,15 +1,10 @@
 # HireLens
-An Ai powered resume checker HireLens helps resume improving there ats score by providing ats scores and usefull ai powered suggestion for improving its ats score also provide ats score and tips for company specific
+## AI-Powered Resume Analyzer & Job Matching Platform 
+HireLens is an intelligent web application designed to help users improve their resumes and analyze job compatibility using AI-powered insights and a custom-built ATS (Applicant Tracking System).
+
+Users can upload their resumes in PDF format, receive ATS scores, strengths, improvement suggestions, AI-generated summaries, and job matching analysis based on company and role requirements.
 
 ![Profile Page](images/profile.gif)
-
-
-# 🚀 HireLens – AI Powered Resume Checker
-
-HireLens is an **AI-based Resume Analysis Platform** designed to help job seekers improve their resumes and increase their chances of passing **Applicant Tracking Systems (ATS)** used by companies.
-
-The platform analyzes resumes, provides an **ATS compatibility score**, and offers **AI-powered suggestions** to enhance resume quality, relevance, and structure.
-
 ---
 
 ## 🌟 Features
@@ -65,7 +60,7 @@ HireLens currently includes **4 main pages**:
 | **Database** | MongoDB |
 | **AI API** | Groq API |
 | **Resume Parsing** | PDF Processing |
-| **Deployment** | Vercel / Render |
+| **Deployment** | Render |
 
 ---
 
@@ -110,3 +105,7 @@ If you like this project, don’t forget to **star ⭐ the repository**!
 
 ### 🔗 Project Name: **HireLens**
 *See your resume the way recruiters do.*
+
+### 👨‍💻 Developed By
+Mahatva Agarwal
+HireLens Project – AI Resume Analyzer & Job Matcher
