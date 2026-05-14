@@ -132,20 +132,6 @@ Users can upload their resumes in PDF format, receive ATS scores, strengths, imp
 4. Click **AI Summary** → Groq API generates a professional resume summary
 5. Click **Job Matching** → Enter company name & job role → Get *Strong / Partial / Weak Match* with a detailed breakdown
 
-
-
-##  How It Works
-
-### Resume Checker
-1. User uploads their resume in **PDF format**
-2. Our custom ATS engine parses and scores the resume
-3. Results show:
-   -  ATS Score
-   -  Strengths
-   -  Areas of Improvement
-4. Click **AI Summary** → Groq API generates a professional resume summary
-5. Click **Job Matching** → Enter company name & job role → Get match result (e.g. *Strong Match*) with a detailed summary
-
 ---
 
 ##  Project Goal
