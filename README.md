@@ -4,28 +4,22 @@ HireLens is an intelligent web application designed to help users improve their 
 Users can upload their resumes in PDF format, receive ATS scores, strengths, improvement suggestions, AI-generated summaries, and job matching analysis based on company and role requirements.
 
 ![Profile Page](images/profile.gif)
----
-
-## 🌟 Features
-
-### ✅ AI Resume Checker
-- Upload your resume and get an **ATS score**
-- Detects formatting, keyword gaps, and structure issues
-- AI-generated suggestions to improve resume quality
-
-### 🧠 AI-Based Suggestions
-- Skill and keyword optimization
-- Content improvement tips
-- Role-specific recommendations
-
-### 📄 Website Pages
-HireLens currently includes **4 main pages**:
-1. **Home** – Overview of HireLens and its features  
-2. **Resume Checker** – Upload and analyze resumes using AI  
-3. **Review Us** – User feedback and testimonials  
-4. **Login** – Secure authentication for users  
 
 ---
+
+## ✨ Features
+
+-  **ATS Resume Scoring** — Our own built-in ATS engine analyzes your resume and gives an ATS score
+-  **Strengths & Improvements** — Get detailed feedback on what's working and what to fix
+-  **AI Summary** — Groq API generates a professional summary of your resume on demand
+-  **Keyword Matching** — Matches the keyword from resume and display them 
+-  **Job Matching** — Enter a company and job role to get a match result (e.g. Strong Match) with a summary
+-  **Authentication** — Secure login and signup via Firebase Authentication
+-  **User Profile** — Personal profile page for every user
+-  **Review Us** — Users can leave feedback and reviews
+
+---
+
 ## 📸 Screenshot
 <p align="center">
   <img src="images/Screenshot 2026-05-14 101118.png" width="750">
@@ -63,20 +57,15 @@ HireLens currently includes **4 main pages**:
 
 ---
 
-## 🔮 Future Updates (Coming Soon)
+## 📄 Pages
 
-- 🏢 **Company-Based Resume Checker**  
-  - Resume analysis tailored to specific companies (Google, Microsoft, startups, etc.)
-
-- 📊 **Advanced ATS Scoring System**  
-  - Multiple ATS models simulation
-  - Detailed section-wise ATS breakdown
-
-- 🤖 **Role-Based Resume Suggestions**
-  - Resume optimization for specific job roles (SDE, Data Analyst, Frontend Developer, etc.)
-
-- 📈 **Resume History & Progress Tracking**
-  - Track improvements over time
+| Page | Description |
+|---|---|
+| **Home** | Landing page introducing HireLens |
+| **Login** | Firebase-powered user authentication |
+| **Profile** | View and manage your account |
+| **Resume Checker** | Upload resume PDF, get ATS score, strengths & improvements |
+| **Review Us** | Leave a review or read what others say (Database-MongoDB) |
 
 ---
 
@@ -106,5 +95,5 @@ If you like this project, don’t forget to **star ⭐ the repository**!
 *See your resume the way recruiters do.*
 
 ### 👨‍💻 Developed By
-Mahatva Agarwal
-HireLens Project – AI Resume Analyzer & Job Matcher
+- Mahatva Agarwal
+- HireLens Project – AI Resume Analyzer & Job Matcher
