@@ -79,6 +79,37 @@ HireLens aims to bridge the gap between **job seekers and ATS systems** by provi
 
 ---
 
+
+## 🚀 Getting Started
+
+````bash
+# Clone the repository
+git clone https://github.com/your-username/hirelens.git
+
+# Navigate into the project
+cd hirelens
+
+# Install dependencies
+npm install
+
+# Start the server
+npm start
+````
+
+---
+
+## 🔑 Environment Variables
+
+Create a `.env` file in the root directory and add the following:
+
+````env
+GROQ_API_KEY=your_groq_api_key
+MONGODB_URI=your_mongodb_connection_string
+FIREBASE_API_KEY=your_firebase_api_key
+````
+
+---
+
 ## 📌 Disclaimer
 
 HireLens provides AI-based analysis and suggestions.  
