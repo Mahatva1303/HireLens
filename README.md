@@ -42,6 +42,7 @@ Users can upload their resumes in PDF format, receive ATS scores, strengths, imp
 -  **Authentication** — Secure login and signup via Firebase Authentication
 -  **User Profile** — Personal profile page for every user
 -  **Review Us** — Users can leave feedback and reviews
+-  **Profile Analyzer** - Users can now analyze there **Github** and **Linkdin** profile via Hirelens itself
 
 ---
 
