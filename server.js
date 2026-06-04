@@ -9,6 +9,7 @@ const pdfParse = require("pdf-parse");
 const fs = require("fs");
 const Groq = require("groq-sdk");
 const upload = multer({ dest: "uploads/" });
+const uploadMemory = multer({ storage: multer.memoryStorage() });
 
 const groq = new Groq({
   apiKey: process.env.GROQ_API_KEY
@@ -54,85 +55,11 @@ app.get("/api/reviews", async (req, res) => {
 });
 
 // app.listen(5000, () => console.log("Server running on 5000"));
-
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
-
-
-
-
-// Resume Logic(first major)
-// app.post("/analyze", upload.single("resume"), async (req, res) => {
-//   try {
-//     const filePath = req.file.path;
-//     const pdfData = await pdfParse(fs.readFileSync(filePath));
-//     const text = pdfData.text.toLowerCase();
-
-//     let score = 0;
-//     let strengths = [];
-//     let improvements = [];
-
-//     // Sections
-//     if (text.includes("skills")) { score += 10; strengths.push("Skills section present"); }
-//     else improvements.push("Add skills section");
-
-//     if (text.includes("project")) { score += 10; strengths.push("Projects included"); }
-//     else improvements.push("Add projects section");
-
-//     if (text.includes("experience")) { score += 14; strengths.push("Experience included"); }
-//     else improvements.push("Add experience section");
-
-//     if (text.includes("education")) score += 8;
-
-//     // Keywords
-//     const keywords = ["javascript","react","node","python","java","sql","html","css","api","git","docker","aws","MongoDB","C++"];
-//     const matched = keywords.filter(k => text.includes(k));
-
-//     score += matched.length * 2;
-
-//     // Extra feature: Action verbs
-//     const verbs = ["developed","built","designed","implemented"];
-//     if (verbs.some(v => text.includes(v))) {
-//       score += 6;
-//       strengths.push("Strong action verbs used");
-//     } else {
-//       improvements.push("Use strong action verbs");
-//     }
-
-//     // Extra feature: Numbers/impact
-//     if (/\d+%|\d+\+/.test(text)) {
-//       score += 10;
-//       strengths.push("Quantified achievements present");
-//     } else {
-//       improvements.push("Add measurable achievements");
-//     }
-
-//     if (score > 100) score = 100;
-
-//     let rating = "Average";
-//     if (score > 80) rating = "Excellent";
-//     else if (score > 60) rating = "Good";
-//     else if (score > 40) rating = "Needs Improvement";
-
-//     res.json({
-//       score,
-//       rating,
-//       strengths,
-//       improvements,
-//       keywords: matched,
-//       text: pdfData.text 
-//     });
-
-//   } catch (err) {
-//     console.log(err);
-//     res.status(500).send("Error");
-//   }
-// });
-
-
 
 // Resume Logic (improved major update (1.1))
 app.post("/analyze", upload.single("resume"), async (req, res) => {
@@ -386,9 +313,6 @@ app.post("/analyze", upload.single("resume"), async (req, res) => {
 
 // resume logic end
 
-
-
-
 // resume summary
 app.post("/generate-summary", async (req, res) => {
   try {
@@ -457,13 +381,181 @@ ${text}
     res.status(500).json({ error: "Match failed" });
   }
 });
-// const PORT = 5000;
+// job match end
 
+
+// ── GITHUB PROFILE ANALYSIS ──────────────────────────────────
+app.post("/api/analyze-github", async (req, res) => {
+  const { username } = req.body;
+
+  if (!username) {
+    return res.status(400).json({ error: "Username is required" });
+  }
+
+  try {
+    const profileRes = await fetch(`https://api.github.com/users/${username}`);
+    if (!profileRes.ok) {
+      return res.status(404).json({ error: `GitHub user "${username}" not found.` });
+    }
+    const profileData = await profileRes.json();
+
+    const reposRes = await fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=10`);
+    const repos = await reposRes.json();
+
+    const repoSummary = repos.map(r => ({
+      name: r.name,
+      description: r.description,
+      language: r.language,
+      stars: r.stargazers_count,
+      updatedAt: r.updated_at
+    }));
+
+    const languages = [...new Set(repos.map(r => r.language).filter(Boolean))];
+    const accountAgeYears = Math.floor(
+      (Date.now() - new Date(profileData.created_at)) / (1000 * 60 * 60 * 24 * 365)
+    );
+
+    const prompt = `
+You are a professional career coach and technical recruiter. Analyze this GitHub profile and give honest, actionable feedback.
+
+PROFILE DATA:
+- Username: ${profileData.login}
+- Name: ${profileData.name || 'Not set'}
+- Bio: ${profileData.bio || 'Not set'}
+- Public repos: ${profileData.public_repos}
+- Followers: ${profileData.followers}
+- Following: ${profileData.following}
+- Account created: ${profileData.created_at}
+- Location: ${profileData.location || 'Not set'}
+
+TOP REPOS:
+${JSON.stringify(repoSummary, null, 2)}
+
+LANGUAGES USED: ${languages.join(', ') || 'None detected'}
+
+Respond ONLY with valid JSON, no markdown, no extra text:
+{
+  "overallScore": <number 0-100>,
+  "scores": [
+    { "label": "Code quality signals", "value": <0-100> },
+    { "label": "README & documentation", "value": <0-100> },
+    { "label": "Project diversity", "value": <0-100> },
+    { "label": "Contribution activity", "value": <0-100> },
+    { "label": "Profile completeness", "value": <0-100> }
+  ],
+  "insights": [
+    { "type": "strength", "text": "<specific observation>" },
+    { "type": "improvement", "text": "<specific actionable improvement>" },
+    { "type": "redflag", "text": "<something hurting their chances>" },
+    { "type": "tip", "text": "<one concrete recruiter tip>" }
+  ],
+  "skills": [<array of detected languages and skills as strings>]
+}`;
+
+    const completion = await groq.chat.completions.create({
+      model: "llama-3.3-70b-versatile",
+      messages: [{ role: "user", content: prompt }],
+      temperature: 0.3,
+      max_tokens: 1000
+    });
+
+    let analysis;
+    try {
+      const raw = completion.choices[0].message.content.trim();
+      const clean = raw.replace(/```json|```/g, "").trim();
+      analysis = JSON.parse(clean);
+    } catch {
+      return res.status(500).json({ error: "AI returned unexpected response. Please try again." });
+    }
+
+    res.json({
+      profile: {
+        login: profileData.login,
+        name: profileData.name,
+        bio: profileData.bio,
+        publicRepos: profileData.public_repos,
+        followers: profileData.followers,
+        accountAge: accountAgeYears
+      },
+      analysis
+    });
+
+  } catch (err) {
+    console.error("GitHub analyze error:", err);
+    res.status(500).json({ error: "Failed to analyze profile. Please try again." });
+  }
+});
+
+
+// ── LINKEDIN PROFILE ANALYSIS ────────────────────────────────
+app.post("/api/analyze-linkedin", async (req, res) => {
+  const { username } = req.body;
+
+  if (!username) {
+    return res.status(400).json({ error: "LinkedIn username is required." });
+  }
+
+  try {
+    const profileUrl = `https://www.linkedin.com/in/${username}`;
+
+    const prompt = `
+You are a professional LinkedIn profile coach and recruiter. Analyze this LinkedIn profile and give specific, honest, actionable feedback.
+
+LinkedIn Profile URL: ${profileUrl}
+Username: ${username}
+
+Respond ONLY with valid JSON, no markdown, no extra text:
+{
+  "overallScore": <number 0-100>,
+  "sectionsFound": <estimated number 1-8>,
+  "keywordScore": <number 0-100>,
+  "scores": [
+    { "label": "Headline effectiveness", "value": <0-100> },
+    { "label": "About / summary section", "value": <0-100> },
+    { "label": "Experience descriptions", "value": <0-100> },
+    { "label": "Skills & endorsements", "value": <0-100> },
+    { "label": "Profile completeness", "value": <0-100> }
+  ],
+  "insights": [
+    { "type": "strength", "text": "<actionable strength tip>" },
+    { "type": "redflag", "text": "<something commonly missing that hurts profiles>" },
+    { "type": "improvement", "text": "<specific actionable improvement>" },
+    { "type": "tip", "text": "<one concrete recruiter-perspective tip>" }
+  ],
+  "missingKeywords": [<3-5 commonly missing keywords as strings>],
+  "foundKeywords": [<3-5 commonly good keywords to have as strings>]
+}`;
+
+    const completion = await groq.chat.completions.create({
+      model: "llama-3.3-70b-versatile",
+      messages: [{ role: "user", content: prompt }],
+      temperature: 0.3,
+      max_tokens: 1000
+    });
+
+    let analysis;
+    try {
+      const raw = completion.choices[0].message.content.trim();
+      const clean = raw.replace(/```json|```/g, "").trim();
+      analysis = JSON.parse(clean);
+    } catch {
+      return res.status(500).json({ error: "AI returned unexpected response. Please try again." });
+    }
+
+    res.json({
+      profile: { name: username, headline: `linkedin.com/in/${username}` },
+      analysis
+    });
+
+  } catch (err) {
+    console.error("LinkedIn analyze error:", err);
+    res.status(500).json({ error: "Failed to analyze profile. Please try again." });
+  }
+});
+
+
+// const PORT = 5000;
 app.listen(PORT, () => {
   console.log(`🚀 Server running at: http://localhost:${PORT}`);
   console.log(`👉 Open Login Page: http://localhost:${PORT}`);
 });
-
-
-
-// job match end

@@ -140,8 +140,9 @@ function handleFileSelect(input) {
 }
 
 async function analyzeLinkedin() {
-  if (!selectedLinkedinFile) {
-    showError('linkedin-error', 'Please select your LinkedIn PDF first.');
+  const username = document.getElementById('linkedin-username').value.trim();
+  if (!username) {
+    showError('linkedin-error', 'Please enter your LinkedIn profile name.');
     return;
   }
 
@@ -150,12 +151,10 @@ async function analyzeLinkedin() {
   hideElement('linkedin-results');
 
   try {
-    const formData = new FormData();
-    formData.append('pdf', selectedLinkedinFile);
-
     const res = await fetch('/api/analyze-linkedin', {
       method: 'POST',
-      body: formData
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ username })
     });
 
     const data = await res.json();
