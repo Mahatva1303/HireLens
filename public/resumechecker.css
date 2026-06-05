@@ -187,7 +187,7 @@ body {
 }
  
  .hero-right img {
-  width: 300px;
+  width: 700px;
   object-fit: contain; 
   /* filter: drop-shadow(0 12px 32px rgba(79,70,229,0.12)); */
     animation: float 4s ease-in-out infinite;
