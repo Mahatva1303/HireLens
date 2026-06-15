@@ -384,6 +384,38 @@ ${text}
 // job match end
 
 
+
+
+// cover letter
+// app.post("/generate-cover-letter", async (req, res) => {
+//   try {
+//     const { text, role, company } = req.body;
+
+//     if (!text || !role || !company) {
+//       return res.status(400).json({ error: "Missing data" });
+//     }
+
+//     const response = await groq.chat.completions.create({
+//       messages: [
+//         {
+//           role: "user",
+//           content: `Write a professional cover letter for the role of ${role} at ${company} based on this resume. Keep it under 300 words, formal tone, 3 paragraphs.\n\nResume:\n${text}`
+//         }
+//       ],
+//       model: "llama-3.1-8b-instant"
+//     });
+
+//     const coverLetter = response.choices[0].message.content;
+//     res.json({ coverLetter });
+
+//   } catch (err) {
+//     console.error("Cover letter error:", err.message);
+//     res.status(500).json({ error: "Cover letter generation failed" });
+//   }
+// });
+// cover letter end
+
+
 // ── GITHUB PROFILE ANALYSIS ──────────────────────────────────
 app.post("/api/analyze-github", async (req, res) => {
   const { username } = req.body;

@@ -186,13 +186,44 @@ body {
   transform: translateY(0);
 }
  
- .hero-right img {
-  width: 700px;
-  object-fit: contain; 
-  /* filter: drop-shadow(0 12px 32px rgba(79,70,229,0.12)); */
-    animation: float 4s ease-in-out infinite;
-} 
+ .hero-right {
+  flex: 1;
+  min-width: 280px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 20px;
+}
 
+.hero-right::before {
+  content: '';
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  background: radial-gradient(circle at top left, rgba(79,70,229,0.15), transparent 60%);
+  top: -40px;
+  right: -80px;
+  z-index: 0;
+}
+
+.hero-right img {
+  width: 100%;
+  max-width: 620px;
+  object-fit: cover;
+  border-radius: 28px;
+  box-shadow: var(--shadow-lg);
+  position: relative;
+  z-index: 1;
+  transition: transform 0.35s ease, filter 0.35s ease;
+  animation: float 4s ease-in-out infinite;
+}
+
+.hero-right img:hover {
+  transform: translateY(-6px) scale(1.02);
+  filter: drop-shadow(0 20px 40px rgba(79,70,229,0.18));
+}
 
 
 @keyframes float {
