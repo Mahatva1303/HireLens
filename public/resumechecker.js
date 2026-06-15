@@ -159,69 +159,69 @@ async function matchJob() {
 
 
 // cover letter
-// function openCoverLetterPopup() {
-//   if (!resumeText) {
-//     alert("Please analyze your resume first!");
-//     return;
-//   }
-//   document.getElementById("coverLetterPopup").style.display = "block";
-// }
+function openCoverLetterPopup() {
+  if (!resumeText) {
+    alert("Please analyze your resume first!");
+    return;
+  }
+  document.getElementById("coverLetterPopup").style.display = "block";
+}
 
-// function closeCoverLetterPopup() {
-//   document.getElementById("coverLetterPopup").style.display = "none";
-// }
+function closeCoverLetterPopup() {
+  document.getElementById("coverLetterPopup").style.display = "none";
+}
 
-// async function generateCoverLetter() {
-//   const role = document.getElementById("clRole").value.trim();
-//   const company = document.getElementById("clCompany").value.trim();
+async function generateCoverLetter() {
+  const role = document.getElementById("clRole").value.trim();
+  const company = document.getElementById("clCompany").value.trim();
 
-//   if (!role || !company) {
-//     alert("Please enter job role and company name.");
-//     return;
-//   }
+  if (!role || !company) {
+    alert("Please enter job role and company name.");
+    return;
+  }
 
-//   closeCoverLetterPopup();
+  closeCoverLetterPopup();
 
-//   try {
-//     const res = await fetch("/generate-cover-letter", {
-//       method: "POST",
-//       headers: { "Content-Type": "application/json" },
-//       body: JSON.stringify({ text: resumeText, role, company })
-//     });
+  try {
+    const res = await fetch("/generate-cover-letter", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ text: resumeText, role, company })
+    });
 
-//     const data = await res.json();
+    const data = await res.json();
 
-//     let coverBox = document.getElementById("coverLetterBox");
+    let coverBox = document.getElementById("coverLetterBox");
 
-//     if (!coverBox) {
-//       const container = document.querySelector(".dashboard");
-//       const div = document.createElement("div");
-//       div.className = "card";
-//       div.id = "coverLetterBox";
-//       div.innerHTML = `
-//         <h3>Cover Letter</h3>
-//         <p style="white-space: pre-line; line-height:1.8">${data.coverLetter}</p>
-//         <button onclick="copyCoverLetter()" style="margin-top:12px">Copy</button>
-//       `;
-//       container.appendChild(div);
-//     } else {
-//       coverBox.innerHTML = `
-//         <h3>Cover Letter</h3>
-//         <p style="white-space: pre-line; line-height:1.8">${data.coverLetter}</p>
-//         <button onclick="copyCoverLetter()" style="margin-top:12px">Copy</button>
-//       `;
-//     }
+    if (!coverBox) {
+      const container = document.querySelector(".dashboard");
+      const div = document.createElement("div");
+      div.className = "card";
+      div.id = "coverLetterBox";
+      div.innerHTML = `
+        <h3>Cover Letter</h3>
+        <p style="white-space: pre-line; line-height:1.8">${data.coverLetter}</p>
+        <button onclick="copyCoverLetter()" style="margin-top:12px">Copy</button>
+      `;
+      container.appendChild(div);
+    } else {
+      coverBox.innerHTML = `
+        <h3>Cover Letter</h3>
+        <p style="white-space: pre-line; line-height:1.8">${data.coverLetter}</p>
+        <button onclick="copyCoverLetter()" style="margin-top:12px">Copy</button>
+      `;
+    }
 
-//   } catch (err) {
-//     console.error(err);
-//     alert("Error generating cover letter.");
-//   }
-// }
+  } catch (err) {
+    console.error(err);
+    alert("Error generating cover letter.");
+  }
+}
 
-// function copyCoverLetter() {
-//   const text = document.querySelector("#coverLetterBox p").innerText;
-//   navigator.clipboard.writeText(text).then(() => {
-//     alert("Cover letter copied to clipboard!");
-//   });
-// }
+function copyCoverLetter() {
+  const text = document.querySelector("#coverLetterBox p").innerText;
+  navigator.clipboard.writeText(text).then(() => {
+    alert("Cover letter copied to clipboard!");
+  });
+}
 
