@@ -34,7 +34,7 @@ Users can upload their resumes in PDF format, receive ATS scores, strengths, imp
 
 ## ✨ Features
 
--  **ATS Resume Scoring** — Our own built-in ATS engine analyzes your resume and gives an ATS score ***New*** **Cover letter Generator**
+-  **ATS Resume Scoring** — Our own built-in ATS engine analyzes your resume and gives an ATS score with ***New*** **Cover letter Generator** feature
 -  **Strengths & Improvements** — Get detailed feedback on what's working and what to fix
 -  **AI Summary** — Groq API generates a professional summary of your resume on demand
 -  **Keyword Matching** — Matches the keyword from resume and display them 
