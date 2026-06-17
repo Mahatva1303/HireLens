@@ -553,7 +553,7 @@ body {
     font-size:15px;
 }
 
-/* .go-btn{
+.go-btn{
     position:absolute;
     right:20px;
     bottom:20px;
@@ -573,4 +573,4 @@ body {
 .go-btn:hover{
     transform:translateX(4px);
     background:#000;
-} */
+}
