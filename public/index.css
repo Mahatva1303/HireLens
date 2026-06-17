@@ -482,7 +482,7 @@ body {
     padding:0 30px;
     text-align:center;
 }
-
+/* 
 .tag{
     display:inline-block;
     background:#111;
@@ -573,4 +573,4 @@ body {
 .go-btn:hover{
     transform:translateX(4px);
     background:#000;
-}
+} */
