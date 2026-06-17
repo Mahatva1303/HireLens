@@ -482,7 +482,7 @@ body {
     padding:0 30px;
     text-align:center;
 }
-/* 
+
 .tag{
     display:inline-block;
     background:#111;
@@ -553,7 +553,7 @@ body {
     font-size:15px;
 }
 
-.go-btn{
+/* .go-btn{
     position:absolute;
     right:20px;
     bottom:20px;
