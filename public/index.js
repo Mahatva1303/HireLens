@@ -66,8 +66,8 @@ window.addEventListener('DOMContentLoaded', () => {
 
 // ── Scroll animation for How It Works cards ─────────────
 
-// document.querySelectorAll('.step-card').forEach((el) => {
-//   observer.observe(el);
-// });
+document.querySelectorAll('.step-card').forEach((el) => {
+  observer.observe(el);
+});
 
 
