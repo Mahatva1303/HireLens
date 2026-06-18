@@ -39,7 +39,7 @@ const observer = new IntersectionObserver(
   { threshold: 0.12 }
 );
 
-document.querySelectorAll('.feature-card').forEach((el) => {
+document.querySelectorAll('.feature-card, .feature-box, .step-card').forEach((el) => {
   el.classList.add('fade-up');
   observer.observe(el);
 });
@@ -62,3 +62,12 @@ window.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
+
+
+// ── Scroll animation for How It Works cards ─────────────
+
+// document.querySelectorAll('.step-card').forEach((el) => {
+//   observer.observe(el);
+// });
+
+
