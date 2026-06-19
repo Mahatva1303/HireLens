@@ -93,10 +93,10 @@ const socialObserver = new IntersectionObserver(
     threshold:0.15
 });
 
-// socialCards.forEach(card=>{
+socialCards.forEach(card=>{
 
-//     card.classList.add('social-hidden');
+    card.classList.add('social-hidden');
 
-//     socialObserver.observe(card);
+    socialObserver.observe(card);
 
-// });
+});
