@@ -71,3 +71,32 @@ document.querySelectorAll('.step-card').forEach((el) => {
 });
 
 
+const socialCards = document.querySelectorAll(
+    '.stat-card, .review-card'
+);
+
+const socialObserver = new IntersectionObserver(
+(entries)=>{
+
+    entries.forEach(entry=>{
+
+        if(entry.isIntersecting){
+
+            entry.target.classList.add('active');
+
+        }
+
+    });
+
+},
+{
+    threshold:0.15
+});
+
+// socialCards.forEach(card=>{
+
+//     card.classList.add('social-hidden');
+
+//     socialObserver.observe(card);
+
+// });
