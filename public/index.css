@@ -731,7 +731,7 @@ body {
    SOCIAL PROOF SECTION
 ================================== */
 
-/* .social-proof{
+.social-proof{
     padding:40px 7vw 40px;
     background:#fafafa;
 }
@@ -906,4 +906,4 @@ body {
     max-width:650px;
     margin:auto;
     line-height:1.7;
-} */
+}
