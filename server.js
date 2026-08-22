@@ -332,7 +332,7 @@ app.post("/generate-summary", async (req, res) => {
           content: `Give a professional 2-line resume summary:\n${text}`
         }
       ],
-      model: "llama-3.1-8b-instant"
+      model: "openai/gpt-oss-120b"
     });
 
     const summary = response.choices[0].message.content;
@@ -370,7 +370,7 @@ ${text}
 `
         }
       ],
-      model: "llama-3.1-8b-instant"
+      model: "openai/gpt-oss-120b"
     });
 
     const result = response.choices[0].message.content;
@@ -403,7 +403,7 @@ app.post("/generate-cover-letter", async (req, res) => {
           content: `Write a professional cover letter for the role of ${role} at ${company} based on this resume. Keep it under 300 words, formal tone, 3 paragraphs.\n\nResume:\n${text}`
         }
       ],
-      model: "llama-3.1-8b-instant"
+      model: "openai/gpt-oss-120b"
     });
 
     const coverLetter = response.choices[0].message.content;
@@ -486,7 +486,7 @@ Respond ONLY with valid JSON, no markdown, no extra text:
 }`;
 
     const completion = await groq.chat.completions.create({
-      model: "llama-3.3-70b-versatile",
+      model: "openai/gpt-oss-120b",
       messages: [{ role: "user", content: prompt }],
       temperature: 0.3,
       max_tokens: 1000
