@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Job Desk | HireLens</title>
+
+    <link rel="stylesheet" href="jobdesk.css">
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            Hire<span>Lens</span>
+        </div>
+
+        <div class="nav-links">
+
+            <a href="index.html">Home</a>
+
+            <a href="resumechecker.html">
+                Resume Analyzer
+            </a>
+
+            <a href="profileanalyzer.html">
+                Profile Analyzer
+            </a>
+
+            <a href="pathfinder.html">
+                PathFinder
+            </a>
+
+            <a href="jobdesk.html" class="active">
+                Job Desk
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- ================= PAGE HEADER ================= -->
+
+    <section class="page-header">
+
+        <div class="page-header-content">
+
+            <span class="page-badge">
+                PLACEMENT TRACKER
+            </span>
+
+            <h1>
+                Your Personal
+                <span>Job Desk</span>
+            </h1>
+
+            <p>
+                Track every company you apply to, monitor your
+                progress, discover hiring companies and manage
+                your recruiter outreach.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="container">
+
+
+        <!-- =================================================
+             APPLICATION TRACKER
+             ================================================= -->
+
+        <section class="section-card">
+
+            <div class="section-top">
+
+                <div>
+                    <h2>
+                        📋 My Applications
+                    </h2>
+
+                    <p>
+                        Keep track of every job application in one place.
+                    </p>
+                </div>
+
+                <button
+                    class="primary-btn"
+                    id="addApplicationBtn"
+                >
+                    + Add Application
+                </button>
+
+            </div>
+
+
+            <!-- TRACKER CONTROLS -->
+
+            <div class="tracker-controls">
+
+                <div class="view-toggle">
+
+                    <button
+                        class="toggle-btn active"
+                        id="tableViewBtn"
+                    >
+                        ▦ Spreadsheet
+                    </button>
+
+                    <button
+                        class="toggle-btn"
+                        id="kanbanViewBtn"
+                    >
+                        ▤ Kanban Board
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= SPREADSHEET ================= -->
+
+            <div
+                class="spreadsheet-wrapper"
+                id="spreadsheetView"
+            >
+
+                <table class="application-table">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>Company</th>
+
+                            <th>Role</th>
+
+                            <th>Referral</th>
+
+                            <th>Date Applied</th>
+
+                            <th>Progress</th>
+
+                            <th>Notes</th>
+
+                            <th>Action</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="applicationTableBody">
+
+                        <!-- Applications will be added by JS -->
+
+                    </tbody>
+
+                </table>
+
+
+                <!-- EMPTY STATE -->
+
+                <div
+                    class="empty-state"
+                    id="emptyState"
+                >
+
+                    <div class="empty-icon">
+                        📂
+                    </div>
+
+                    <h3>
+                        No applications yet
+                    </h3>
+
+                    <p>
+                        Start tracking your placement applications
+                        by clicking "Add Application".
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= KANBAN ================= -->
+
+            <div
+                class="kanban-wrapper"
+                id="kanbanView"
+                style="display: none;"
+            >
+
+                <div
+                    class="kanban-board"
+                    id="kanbanBoard"
+                >
+
+
+                    <!-- APPLIED -->
+
+                    <div
+                        class="kanban-column"
+                        data-status="Applied"
+                    >
+
+                        <div class="kanban-header">
+
+                            <h3>
+                                Applied
+                            </h3>
+
+                            <span id="countApplied">
+                                0
+                            </span>
+
+                        </div>
+
+                        <div
+                            class="kanban-cards"
+                            id="kanbanApplied"
+                        ></div>
+
+                    </div>
+
+
+                    <!-- OA -->
+
+                    <div
+                        class="kanban-column"
+                        data-status="OA / Assessment"
+                    >
+
+                        <div class="kanban-header">
+
+                            <h3>
+                                OA / Assessment
+                            </h3>
+
+                            <span id="countOA">
+                                0
+                            </span>
+
+                        </div>
+
+                        <div
+                            class="kanban-cards"
+                            id="kanbanOA"
+                        ></div>
+
+                    </div>
+
+
+                    <!-- INTERVIEW -->
+
+                    <div
+                        class="kanban-column"
+                        data-status="Interviewing"
+                    >
+
+                        <div class="kanban-header">
+
+                            <h3>
+                                Interviewing
+                            </h3>
+
+                            <span id="countInterviewing">
+                                0
+                            </span>
+
+                        </div>
+
+                        <div
+                            class="kanban-cards"
+                            id="kanbanInterviewing"
+                        ></div>
+
+                    </div>
+
+
+                    <!-- OFFER -->
+
+                    <div
+                        class="kanban-column"
+                        data-status="Offer"
+                    >
+
+                        <div class="kanban-header">
+
+                            <h3>
+                                Offer
+                            </h3>
+
+                            <span id="countOffer">
+                                0
+                            </span>
+
+                        </div>
+
+                        <div
+                            class="kanban-cards"
+                            id="kanbanOffer"
+                        ></div>
+
+                    </div>
+
+
+                    <!-- REJECTED -->
+
+                    <div
+                        class="kanban-column"
+                        data-status="Rejected"
+                    >
+
+                        <div class="kanban-header">
+
+                            <h3>
+                                Rejected
+                            </h3>
+
+                            <span id="countRejected">
+                                0
+                            </span>
+
+                        </div>
+
+                        <div
+                            class="kanban-cards"
+                            id="kanbanRejected"
+                        ></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             CURRENT HIRING COMPANIES
+             ================================================= -->
+
+        <section class="section-card">
+
+            <div class="section-top">
+
+                <div>
+
+                    <h2>
+                        🔎 Companies Hiring
+                    </h2>
+
+                    <p>
+                        Find companies relevant to the role
+                        you want to apply for.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="hiring-form">
+
+                <div class="form-group">
+
+                    <label for="jobRole">
+                        What role are you looking for?
+                    </label>
+
+                    <input
+                        type="text"
+                        id="jobRole"
+                        placeholder="e.g. Software Development Engineer"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="university">
+                        University
+                    </label>
+
+                    <input
+                        type="text"
+                        id="university"
+                        placeholder="e.g. MITS Gwalior"
+                    >
+
+                </div>
+
+
+                <button
+                    class="primary-btn"
+                    id="findCompaniesBtn"
+                >
+                    Find Hiring Companies →
+                </button>
+
+            </div>
+
+
+            <!-- LOADING -->
+
+            <div
+                class="hiring-loading"
+                id="hiringLoading"
+                style="display: none;"
+            >
+
+                <div class="small-loader"></div>
+
+                <p>
+                    Finding relevant companies...
+                </p>
+
+            </div>
+
+
+            <!-- AI COMPANY RESULTS -->
+
+            <div
+                class="company-results"
+                id="companyResults"
+                style="display: none;"
+            >
+
+
+                <!-- TOP COMPANIES -->
+
+                <div class="company-tier">
+
+                    <div class="tier-title">
+
+                        <h3>
+                            🏆 Top Companies
+                        </h3>
+
+                        <span>
+                            5 Companies
+                        </span>
+
+                    </div>
+
+                    <div
+                        class="company-grid"
+                        id="topCompanies"
+                    ></div>
+
+                </div>
+
+
+                <!-- MID COMPANIES -->
+
+                <div class="company-tier">
+
+                    <div class="tier-title">
+
+                        <h3>
+                            ⭐ Mid-Level Companies
+                        </h3>
+
+                        <span>
+                            5 Companies
+                        </span>
+
+                    </div>
+
+                    <div
+                        class="company-grid"
+                        id="midCompanies"
+                    ></div>
+
+                </div>
+
+
+                <!-- SMALL COMPANIES -->
+
+                <div class="company-tier">
+
+                    <div class="tier-title">
+
+                        <h3>
+                            🔹 Small / Growing Companies
+                        </h3>
+
+                        <span>
+                            5 Companies
+                        </span>
+
+                    </div>
+
+                    <div
+                        class="company-grid"
+                        id="smallCompanies"
+                    ></div>
+
+                </div>
+
+
+                <!-- STARTUPS -->
+
+                <div class="company-tier">
+
+                    <div class="tier-title">
+
+                        <h3>
+                            🚀 Startups
+                        </h3>
+
+                        <span>
+                            5 Companies
+                        </span>
+
+                    </div>
+
+                    <div
+                        class="company-grid"
+                        id="startupCompanies"
+                    ></div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             EMAIL TEMPLATES
+             ================================================= -->
+
+        <section class="section-card">
+
+            <div class="section-top">
+
+                <div>
+
+                    <h2>
+                        ✉️ Recruiter & Referral Templates
+                    </h2>
+
+                    <p>
+                        Quickly customize professional messages
+                        for recruiters, employees and alumni.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="template-grid">
+
+
+                <!-- REFERRAL -->
+
+                <div class="template-card">
+
+                    <div class="template-icon">
+                        🤝
+                    </div>
+
+                    <h3>
+                        Ask for a Referral
+                    </h3>
+
+                    <p>
+                        A concise LinkedIn message for
+                        requesting an employee referral.
+                    </p>
+
+                    <button
+                        class="secondary-btn"
+                        data-template="referral"
+                    >
+                        Use Template
+                    </button>
+
+                </div>
+
+
+                <!-- RECRUITER -->
+
+                <div class="template-card">
+
+                    <div class="template-icon">
+                        💼
+                    </div>
+
+                    <h3>
+                        Recruiter Follow-up
+                    </h3>
+
+                    <p>
+                        Follow up with a recruiter after
+                        applying for a position.
+                    </p>
+
+                    <button
+                        class="secondary-btn"
+                        data-template="recruiter"
+                    >
+                        Use Template
+                    </button>
+
+                </div>
+
+
+                <!-- ALUMNI -->
+
+                <div class="template-card">
+
+                    <div class="template-icon">
+                        🎓
+                    </div>
+
+                    <h3>
+                        Connect with Alumni
+                    </h3>
+
+                    <p>
+                        A professional message for contacting
+                        alumni working at a company.
+                    </p>
+
+                    <button
+                        class="secondary-btn"
+                        data-template="alumni"
+                    >
+                        Use Template
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- TEMPLATE EDITOR -->
+
+            <div
+                class="template-editor"
+                id="templateEditor"
+                style="display: none;"
+            >
+
+                <div class="editor-header">
+
+                    <h3>
+                        Customize Message
+                    </h3>
+
+                    <button
+                        class="close-editor"
+                        id="closeEditorBtn"
+                    >
+                        ×
+                    </button>
+
+                </div>
+
+
+                <textarea
+                    id="templateText"
+                    rows="10"
+                    placeholder="Your message will appear here..."
+                ></textarea>
+
+
+                <div class="editor-actions">
+
+                    <button
+                        class="primary-btn"
+                        id="copyTemplateBtn"
+                    >
+                        Copy Message
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script src="jobdesk.js"></script>
+
+</body>
+
+</html>

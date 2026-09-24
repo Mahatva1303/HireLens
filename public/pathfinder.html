@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PathFinder | HireLens</title>
+
+    <link rel="stylesheet" href="pathfinder.css">
+</head>
+
+<body>
+
+    <nav class="navbar">
+
+  <!-- LEFT: LOGO + NAME -->
+  <div class="nav-left">
+    <img src="images/hirelens-high-resolution-logo-transparent.png" alt="Logo">
+    <span class="company-name"></span> HireLens </span>
+  </div>
+
+  <!-- RIGHT: MENU -->
+  <div class="nav-right">
+    <a href="index.html">Home</a>
+    <a href="resumechecker.html">Resume Checker</a>
+     <a href="pathfinder.html">PathFinder</a>
+    <a href="profileanalyzer.html">Profile Analyzer(Beta)</a>
+    <a href="review.html">Review Us</a>
+    <a href="profile.html">Profile</a>
+    <a href="login.html" class="login-btn">Login</a>
+  </div>
+
+</nav>
+
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <div class="hero-badge">
+                AI CAREER ROADMAP
+            </div>
+
+            <h1>
+                Find Your Path.
+                <span>Build Your Future.</span>
+            </h1>
+
+            <p>
+                Tell us your dream role and where you are right now.
+                PathFinder will create a personalized career roadmap
+                designed around your current skills.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="container">
+
+        <section class="planner-card">
+
+            <div class="section-heading">
+
+                <h2>
+                    Build Your Career Path
+                </h2>
+
+                <p>
+                    Answer a few questions and let AI create your
+                    personalized placement roadmap.
+                </p>
+
+            </div>
+
+
+            <form id="pathfinderForm">
+
+
+                <!-- TARGET ROLE -->
+
+                <div class="form-group">
+
+                    <label for="role">
+                        1. What role do you want to become?
+                    </label>
+
+                    <input
+                        type="text"
+                        id="role"
+                        placeholder="e.g. Software Development Engineer"
+                        required
+                    >
+
+                    <p class="input-help">
+                        You can enter any role such as SDE,
+                        Data Analyst, Data Scientist, ML Engineer,
+                        Cybersecurity Analyst, etc.
+                    </p>
+
+
+                    <div class="suggestions">
+
+                        <button
+                            type="button"
+                            class="suggestion"
+                            data-role="Software Development Engineer"
+                        >
+                            SDE
+                        </button>
+
+                        <button
+                            type="button"
+                            class="suggestion"
+                            data-role="Data Analyst"
+                        >
+                            Data Analyst
+                        </button>
+
+                        <button
+                            type="button"
+                            class="suggestion"
+                            data-role="Data Scientist"
+                        >
+                            Data Scientist
+                        </button>
+
+                        <button
+                            type="button"
+                            class="suggestion"
+                            data-role="Backend Developer"
+                        >
+                            Backend Developer
+                        </button>
+
+                        <button
+                            type="button"
+                            class="suggestion"
+                            data-role="Machine Learning Engineer"
+                        >
+                            ML Engineer
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- CURRENT LEVEL -->
+
+                <div class="form-group">
+
+                    <label>
+                        2. Where are you now?
+                    </label>
+
+                    <p class="input-help">
+                        Your roadmap will change according to
+                        your current knowledge.
+                    </p>
+
+
+                    <div class="level-grid">
+
+
+                        <label class="level-card">
+
+                            <input
+                                type="radio"
+                                name="level"
+                                value="Beginner"
+                                required
+                            >
+
+                            <div class="level-content">
+
+                                <div class="level-icon">
+                                    🌱
+                                </div>
+
+                                <h3>
+                                    Beginner
+                                </h3>
+
+                                <p>
+                                    I am starting from the basics.
+                                </p>
+
+                            </div>
+
+                        </label>
+
+
+                        <label class="level-card">
+
+                            <input
+                                type="radio"
+                                name="level"
+                                value="Intermediate"
+                            >
+
+                            <div class="level-content">
+
+                                <div class="level-icon">
+                                    🚀
+                                </div>
+
+                                <h3>
+                                    Intermediate
+                                </h3>
+
+                                <p>
+                                    I know the fundamentals
+                                    and have some experience.
+                                </p>
+
+                            </div>
+
+                        </label>
+
+
+                        <label class="level-card">
+
+                            <input
+                                type="radio"
+                                name="level"
+                                value="Advanced"
+                            >
+
+                            <div class="level-content">
+
+                                <div class="level-icon">
+                                    ⚡
+                                </div>
+
+                                <h3>
+                                    Advanced
+                                </h3>
+
+                                <p>
+                                    I already have strong skills
+                                    and projects.
+                                </p>
+
+                            </div>
+
+                        </label>
+
+                    </div>
+
+                </div>
+
+
+                <!-- CURRENT SKILLS -->
+
+                <div class="form-group">
+
+                    <label for="skills">
+                        3. What skills do you already know?
+                    </label>
+
+                    <textarea
+                        id="skills"
+                        placeholder="Example: Java, DSA, SQL, React, Node.js, MongoDB, Python..."
+                    ></textarea>
+
+                    <p class="input-help">
+                        List programming languages, frameworks,
+                        databases, tools, or anything you already know.
+                    </p>
+
+                </div>
+
+
+                <!-- PROJECT EXPERIENCE -->
+
+                <div class="form-group">
+
+                    <label for="experience">
+                        4. What is your current experience?
+                    </label>
+
+                    <select id="experience">
+
+                        <option value="">
+                            Select your experience
+                        </option>
+
+                        <option value="Student / Fresher">
+                            Student / Fresher
+                        </option>
+
+                        <option value="1-2 projects">
+                            I have built 1-2 projects
+                        </option>
+
+                        <option value="3+ projects">
+                            I have built 3+ projects
+                        </option>
+
+                        <option value="Internship experience">
+                            I have internship experience
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- STUDY TIME -->
+
+                <div class="form-group">
+
+                    <label for="hours">
+                        5. How much time can you study per day?
+                    </label>
+
+                    <select id="hours">
+
+                        <option value="1 hour">
+                            1 hour
+                        </option>
+
+                        <option value="2 hours">
+                            2 hours
+                        </option>
+
+                        <option value="3 hours">
+                            3 hours
+                        </option>
+
+                        <option value="4+ hours">
+                            4+ hours
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- SUBMIT -->
+
+                <button
+                    type="submit"
+                    class="generate-btn"
+                    id="generateBtn"
+                >
+
+                    <span id="btnText">
+                        Generate My Career Path →
+                    </span>
+
+                </button>
+
+                <a href="interview.html" class="test-btn">
+                  Test Me
+                </a>
+
+            </form>
+
+        </section>
+
+
+        <!-- ================= LOADING ================= -->
+
+        <section
+            id="loadingSection"
+            class="loading-section"
+            style="display: none;"
+        >
+
+            <div class="loader"></div>
+
+            <h3>
+                Building Your Career Path...
+            </h3>
+
+            <p>
+                PathFinder is analyzing your current skills
+                and creating a personalized roadmap.
+            </p>
+
+        </section>
+
+
+        <!-- ================= RESULTS ================= -->
+
+        <section
+            id="resultsSection"
+            class="results-section"
+            style="display: none;"
+        >
+
+            <div id="resultsContainer"></div>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script src="pathfinder.js"></script>
+
+</body>
+</html>

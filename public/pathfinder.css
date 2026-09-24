@@ -1,0 +1,774 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f6f8fc;
+    color: #172033;
+    line-height: 1.5;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  background: white;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* LEFT SIDE */
+.nav-left {
+  display: flex;
+  align-items: center;
+}
+
+.nav-left img {
+  width: 40px;
+  margin-right: 10px;
+}
+
+.company-name {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* RIGHT SIDE */
+.nav-right a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: black;
+  font-weight: 500;
+}
+
+.nav-right a:hover {
+  color: #2b7cff;
+}
+
+/* LOGIN BUTTON */
+.login-btn {
+  padding: 8px 15px;
+  background: black;
+  color: white !important;
+  border-radius: 5px;
+}
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+
+/* =====================================================
+   HERO SECTION
+   ===================================================== */
+
+.hero {
+    width: 100%;
+
+    background: linear-gradient(
+        135deg,
+        #eef2ff 0%,
+        #ffffff 55%,
+        #f5f3ff 100%
+    );
+
+    padding: 75px 20px 85px;
+
+    text-align: center;
+}
+
+.hero-content {
+    max-width: 850px;
+    margin: auto;
+}
+
+.hero-badge {
+    display: inline-block;
+
+    padding: 7px 15px;
+
+    border-radius: 30px;
+
+    background: #e6e8ff;
+    color: #4338ca;
+
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-size: 48px;
+    font-weight: 800;
+
+    line-height: 1.15;
+
+    margin-bottom: 20px;
+}
+
+.hero h1 span {
+    display: block;
+    color: #4f46e5;
+}
+
+.hero p {
+    max-width: 700px;
+    margin: auto;
+
+    color: #667085;
+
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+
+/* =====================================================
+   MAIN CONTAINER
+   ===================================================== */
+
+.container {
+    width: 100%;
+    max-width: 1050px;
+
+    margin: 50px auto;
+
+    padding: 0 20px;
+}
+
+
+/* =====================================================
+   PLANNER CARD
+   ===================================================== */
+
+.planner-card {
+    background: #ffffff;
+
+    border-radius: 20px;
+
+    padding: 42px;
+
+    border: 1px solid #eaecf0;
+
+    box-shadow:
+        0 12px 35px rgba(16, 24, 40, 0.06);
+}
+
+.section-heading {
+    margin-bottom: 38px;
+}
+
+.section-heading h2 {
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+
+.section-heading p {
+    color: #667085;
+    font-size: 15px;
+}
+
+
+/* =====================================================
+   FORM
+   ===================================================== */
+
+.form-group {
+    margin-bottom: 31px;
+}
+
+.form-group > label {
+    display: block;
+
+    margin-bottom: 10px;
+
+    font-size: 15px;
+    font-weight: 700;
+
+    color: #172033;
+}
+
+.input-help {
+    margin-top: 8px;
+
+    font-size: 13px;
+
+    color: #7a8191;
+}
+
+
+/* =====================================================
+   INPUTS
+   ===================================================== */
+
+input[type="text"],
+textarea,
+select {
+    width: 100%;
+
+    border: 1px solid #d9dce4;
+
+    background: #ffffff;
+
+    border-radius: 11px;
+
+    padding: 14px 15px;
+
+    font-family: inherit;
+
+    font-size: 14px;
+
+    color: #172033;
+
+    outline: none;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+input[type="text"] {
+    height: 50px;
+}
+
+textarea {
+    min-height: 120px;
+
+    resize: vertical;
+}
+
+select {
+    height: 50px;
+
+    cursor: pointer;
+}
+
+input[type="text"]:focus,
+textarea:focus,
+select:focus {
+    border-color: #6366f1;
+
+    box-shadow:
+        0 0 0 3px rgba(99, 102, 241, 0.10);
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #9aa1af;
+}
+
+
+/* =====================================================
+   ROLE SUGGESTIONS
+   ===================================================== */
+
+.suggestions {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 9px;
+
+    margin-top: 13px;
+}
+
+.suggestion {
+    border: 1px solid #dfe2e8;
+
+    background: #fafbfc;
+
+    color: #505767;
+
+    padding: 8px 13px;
+
+    border-radius: 25px;
+
+    font-size: 12px;
+
+    cursor: pointer;
+
+    transition: all 0.2s ease;
+}
+
+.suggestion:hover {
+    background: #eef2ff;
+
+    color: #4338ca;
+
+    border-color: #818cf8;
+
+    transform: translateY(-1px);
+}
+
+
+/* =====================================================
+   CURRENT LEVEL CARDS
+   ===================================================== */
+
+.level-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 15px;
+
+    margin-top: 15px;
+}
+
+.level-card {
+    position: relative;
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 12px;
+
+    border: 1px solid #dfe2e8;
+
+    border-radius: 14px;
+
+    padding: 20px;
+
+    background: #ffffff;
+
+    cursor: pointer;
+
+    transition: all 0.2s ease;
+}
+
+.level-card:hover {
+    border-color: #818cf8;
+
+    background: #fafaff;
+
+    transform: translateY(-2px);
+}
+
+
+/* hide default radio */
+
+.level-card input[type="radio"] {
+    margin-top: 5px;
+
+    accent-color: #4f46e5;
+}
+
+
+/* selected card */
+
+.level-card:has(input[type="radio"]:checked) {
+    border-color: #6366f1;
+
+    background: #f5f3ff;
+
+    box-shadow:
+        0 5px 18px rgba(79, 70, 229, 0.10);
+}
+
+.level-content {
+    flex: 1;
+}
+
+.level-icon {
+    font-size: 23px;
+
+    margin-bottom: 7px;
+}
+
+.level-content h3 {
+    font-size: 16px;
+
+    margin-bottom: 5px;
+}
+
+.level-content p {
+    color: #737987;
+
+    font-size: 12px;
+
+    line-height: 1.5;
+}
+
+
+/* =====================================================
+   GENERATE BUTTON
+   ===================================================== */
+
+.generate-btn {
+    width: 100%;
+
+    height: 55px;
+
+    border: none;
+
+    border-radius: 11px;
+
+    background: #4f46e5;
+
+    color: #ffffff;
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: all 0.2s ease;
+}
+
+.generate-btn:hover {
+    background: #4338ca;
+
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 8px 20px rgba(79, 70, 229, 0.20);
+}
+
+.generate-btn:active {
+    transform: translateY(0);
+}
+
+.generate-btn:disabled {
+    opacity: 0.65;
+
+    cursor: not-allowed;
+
+    transform: none;
+
+    box-shadow: none;
+}
+
+
+/* =====================================================
+   LOADING SECTION
+   ===================================================== */
+
+.loading-section {
+    background: #ffffff;
+
+    margin-top: 35px;
+
+    padding: 60px 25px;
+
+    border-radius: 18px;
+
+    text-align: center;
+
+    border: 1px solid #eaecf0;
+}
+
+.loader {
+    width: 48px;
+    height: 48px;
+
+    margin: 0 auto 20px;
+
+    border-radius: 50%;
+
+    border: 4px solid #e4e7ec;
+
+    border-top-color: #4f46e5;
+
+    animation: spin 0.9s linear infinite;
+}
+
+.loading-section h3 {
+    font-size: 20px;
+
+    margin-bottom: 8px;
+}
+
+.loading-section p {
+    max-width: 550px;
+
+    margin: auto;
+
+    color: #667085;
+
+    font-size: 14px;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* =====================================================
+   RESULTS
+   ===================================================== */
+
+.results-section {
+    margin-top: 40px;
+}
+
+.result-card {
+    background: #ffffff;
+
+    border: 1px solid #eaecf0;
+
+    border-radius: 18px;
+
+    padding: 30px;
+
+    margin-bottom: 20px;
+
+    box-shadow:
+        0 7px 25px rgba(16, 24, 40, 0.05);
+}
+
+.result-card h2 {
+    font-size: 22px;
+
+    margin-bottom: 12px;
+}
+
+.result-card h3 {
+    font-size: 16px;
+
+    margin-top: 20px;
+
+    margin-bottom: 8px;
+}
+
+.result-card p {
+    color: #667085;
+
+    font-size: 14px;
+
+    line-height: 1.7;
+}
+
+.result-card ul {
+    padding-left: 22px;
+
+    color: #667085;
+
+    font-size: 14px;
+
+    line-height: 1.8;
+}
+
+
+/* =====================================================
+   ROADMAP TIMELINE
+   ===================================================== */
+
+.timeline {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 15px;
+
+    margin-top: 20px;
+}
+
+.timeline-item {
+    position: relative;
+
+    padding: 20px 22px;
+
+    background: #f8f9fc;
+
+    border-left: 4px solid #6366f1;
+
+    border-radius: 0 11px 11px 0;
+}
+
+.timeline-item h3 {
+    margin-top: 0;
+
+    margin-bottom: 7px;
+
+    color: #252b3b;
+}
+
+
+/* =====================================================
+   INFO ITEMS
+   ===================================================== */
+
+.company-list,
+.project-list,
+.resource-list {
+    display: grid;
+
+    gap: 12px;
+
+    margin-top: 15px;
+}
+
+.info-item {
+    padding: 16px;
+
+    border-radius: 11px;
+
+    background: #f8f9fc;
+
+    border: 1px solid #eef0f4;
+}
+
+.info-item strong {
+    color: #252b3b;
+
+    font-size: 14px;
+}
+
+.info-item p {
+    margin-top: 5px;
+}
+
+
+/* =====================================================
+   ATS KEYWORDS
+   ===================================================== */
+
+.keywords {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 9px;
+
+    margin-top: 16px;
+}
+
+.keyword {
+    display: inline-block;
+
+    padding: 7px 12px;
+
+    border-radius: 20px;
+
+    background: #eef2ff;
+
+    color: #4338ca;
+
+    font-size: 12px;
+
+    font-weight: 600;
+}
+
+
+/* =====================================================
+   RESPONSIVE
+   ===================================================== */
+
+@media (max-width: 850px) {
+
+    .navbar {
+        padding: 0 25px;
+    }
+
+    .nav-links {
+        gap: 15px;
+    }
+
+    .level-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero h1 {
+        font-size: 40px;
+    }
+}
+
+
+@media (max-width: 650px) {
+
+    .navbar {
+        height: auto;
+
+        padding: 18px 20px;
+
+        flex-direction: column;
+
+        gap: 15px;
+    }
+
+    .nav-links {
+        flex-wrap: wrap;
+
+        justify-content: center;
+
+        gap: 12px;
+    }
+
+    .nav-links a {
+        font-size: 12px;
+    }
+
+    .hero {
+        padding: 55px 18px 65px;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    .hero p {
+        font-size: 14px;
+    }
+
+    .container {
+        margin: 30px auto;
+
+        padding: 0 14px;
+    }
+
+    .planner-card {
+        padding: 25px 18px;
+
+        border-radius: 15px;
+    }
+
+    .section-heading h2 {
+        font-size: 23px;
+    }
+
+    .result-card {
+        padding: 22px 18px;
+    }
+}
+
+
+.test-btn {
+    display: block;
+    width: 100%;
+
+    margin-top: 12px;
+
+    padding: 15px;
+
+    background: #000000;
+    color: #ffffff;
+
+    text-align: center;
+    text-decoration: none;
+
+    border-radius: 11px;
+
+    font-size: 15px;
+    font-weight: 700;
+
+    transition: 0.2s ease;
+}
+
+.test-btn:hover {
+    background: #222222;
+    transform: translateY(-1px);
+}

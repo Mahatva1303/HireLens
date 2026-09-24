@@ -587,6 +587,550 @@ Respond ONLY with valid JSON, no markdown, no extra text:
 });
 
 
+
+
+// =====================================================
+// PATHFINDER - AI CAREER ROADMAP
+// =====================================================
+
+app.post("/api/pathfinder", async (req, res) => {
+
+  try {
+
+    const {
+      role,
+      level,
+      skills,
+      experience,
+      hours
+    } = req.body;
+
+
+    // ---------------- VALIDATION ----------------
+
+    if (!role || !level) {
+      return res.status(400).json({
+        error: "Target role and current level are required."
+      });
+    }
+
+
+    // ---------------- AI PROMPT ----------------
+
+    const prompt = `
+You are PathFinder, an AI career roadmap assistant for
+college students preparing for internships and placements,
+especially in India.
+
+Create a PERSONALIZED career roadmap.
+
+==============================
+STUDENT INFORMATION
+==============================
+
+Target Role:
+${role}
+
+Current Level:
+${level}
+
+Current Skills:
+${skills || "No skills provided"}
+
+Current Experience:
+${experience || "Not specified"}
+
+Available Study Time:
+${hours || "Not specified"}
+
+==============================
+IMPORTANT INSTRUCTIONS
+==============================
+
+1. Do NOT give every student the same beginner roadmap.
+
+2. Analyze the student's current level and existing skills.
+
+3. Skip or shorten skills they already know.
+
+4. Focus on the missing skills required for the target role.
+
+5. Make the roadmap realistic for a college student.
+
+6. Give a realistic estimated timeline based on the student's
+   current level and available study time.
+
+7. Suggest 5 companies relevant to this role for students
+   targeting internships or placements in India.
+
+8. Suggest useful learning resources.
+
+9. Suggest relevant certifications.
+   Mention that certifications are optional when appropriate.
+
+10. Generate 2-3 portfolio projects that demonstrate
+    skills required for the target role.
+
+11. Generate exactly 10 resume/ATS keywords.
+
+12. Give an entry-level salary estimate for India.
+    Clearly treat this as an estimate, not a guarantee.
+
+13. Give a brief market-demand overview.
+    Do not claim exact live hiring numbers.
+
+14. Do not guarantee employment.
+
+15. Keep recommendations practical and achievable.
+
+==============================
+OUTPUT FORMAT
+==============================
+
+Return ONLY valid JSON.
+
+Do not use markdown.
+Do not use code blocks.
+Do not write any text before or after the JSON.
+
+Use exactly this structure:
+
+{
+  "role": "target role",
+  "current_level": "student's level",
+  "estimated_time": "estimated time",
+
+  "roadmap": [
+    {
+      "phase": "phase name",
+      "duration": "duration",
+      "description": "what the student should learn",
+      "skills": [
+        "skill 1",
+        "skill 2"
+      ]
+    }
+  ],
+
+  "top_companies": [
+    {
+      "name": "company name",
+      "reason": "why this company is relevant"
+    }
+  ],
+
+  "learning_resources": [
+    {
+      "name": "resource name",
+      "type": "course / documentation / platform"
+    }
+  ],
+
+  "certifications": [
+    "certification 1",
+    "certification 2",
+    "certification 3"
+  ],
+
+  "projects": [
+    {
+      "title": "project title",
+      "description": "project description",
+      "technologies": [
+        "technology 1",
+        "technology 2"
+      ]
+    }
+  ],
+
+  "ats_keywords": [
+    "keyword 1",
+    "keyword 2",
+    "keyword 3",
+    "keyword 4",
+    "keyword 5",
+    "keyword 6",
+    "keyword 7",
+    "keyword 8",
+    "keyword 9",
+    "keyword 10"
+  ],
+
+  "salary": "entry-level Indian salary estimate",
+
+  "market_demand": "brief market-demand overview"
+}
+
+==============================
+ROADMAP REQUIREMENTS
+==============================
+
+Generate 4-7 phases.
+
+Each phase should contain:
+- what to learn
+- why it matters
+- relevant skills
+
+The final phases should include:
+- portfolio projects
+- resume preparation
+- interview preparation
+- placement preparation
+
+Personalize the roadmap according to the student's
+existing skills.
+`;
+
+
+    // ---------------- GROQ REQUEST ----------------
+
+    console.log("➡️ Generating PathFinder roadmap for:", role);
+
+    const completion = await groq.chat.completions.create({
+
+      model: "openai/gpt-oss-120b",
+
+      messages: [
+        {
+          role: "system",
+          content:
+            "You are a professional AI career roadmap generator. Return only valid JSON."
+        },
+        {
+          role: "user",
+          content: prompt
+        }
+      ],
+
+      temperature: 0.4,
+
+      max_tokens: 4000
+
+    });
+
+
+    // ---------------- GET AI RESPONSE ----------------
+
+    let rawResponse =
+      completion.choices[0].message.content.trim();
+
+
+    // Remove markdown fences if Groq adds them
+
+    rawResponse = rawResponse
+      .replace(/^```json\s*/i, "")
+      .replace(/^```\s*/i, "")
+      .replace(/\s*```$/i, "")
+      .trim();
+
+
+    // ---------------- PARSE JSON ----------------
+
+    let roadmapData;
+
+    try {
+
+      roadmapData = JSON.parse(rawResponse);
+
+    } catch (parseError) {
+
+      console.error(
+        "❌ PathFinder JSON Parse Error:"
+      );
+
+      console.error(rawResponse);
+
+      return res.status(500).json({
+        error:
+          "AI returned an invalid roadmap. Please try again."
+      });
+
+    }
+
+
+    // ---------------- SEND RESULT ----------------
+
+    res.json(roadmapData);
+
+
+  } catch (error) {
+
+    console.error(
+      "❌ PathFinder Error:",
+      error.message
+    );
+
+    res.status(500).json({
+      error:
+        "Failed to generate career roadmap. Please try again."
+    });
+
+  }
+
+});
+
+
+
+// =====================================================
+// JOB DESK - AI COMPANY FINDER
+// =====================================================
+
+app.post("/api/jobdesk/companies", async (req, res) => {
+
+  try {
+
+    const {
+      role,
+      university
+    } = req.body;
+
+
+    // ---------------- VALIDATION ----------------
+
+    if (!role) {
+
+      return res.status(400).json({
+        error: "Job role is required."
+      });
+
+    }
+
+
+    // ---------------- PROMPT ----------------
+
+    const prompt = `
+You are an AI career assistant helping college students
+find companies relevant to internships and entry-level
+placements in India.
+
+The student is looking for:
+
+TARGET ROLE:
+${role}
+
+UNIVERSITY:
+${university || "Not specified"}
+
+Generate a useful company-discovery list.
+
+IMPORTANT:
+
+1. Return exactly 20 companies.
+2. Divide them into exactly 4 categories:
+   - Top Companies: 5
+   - Mid-Level Companies: 5
+   - Small / Growing Companies: 5
+   - Startups: 5
+
+3. Companies must be real, established organizations.
+4. Do NOT invent or hallucinate company names.
+5. Prefer companies known to hire technology/business
+   professionals or interns relevant to the requested role.
+6. Prefer companies relevant to the Indian job market.
+7. Give a short explanation of why each company is relevant.
+8. Provide the official company careers URL when you know it.
+9. Do not claim that a specific position is currently open
+   unless you have reliable live data.
+10. The careers URL should be the company's official careers
+    page, NOT a job aggregator.
+11. The student should be able to use the result to research
+    internships and placement opportunities.
+12. The LinkedIn search URL does NOT need to be generated by
+    you. Our website will generate it automatically.
+
+Return ONLY valid JSON.
+No markdown.
+No code fences.
+No explanation outside the JSON.
+
+Use EXACTLY this structure:
+
+{
+  "role": "requested role",
+
+  "disclaimer": "Company suggestions are AI-generated. Students should verify current openings on the official careers page.",
+
+  "top": [
+    {
+      "name": "Company Name",
+      "role": "Relevant role",
+      "reason": "Why this company is relevant",
+      "careers_url": "https://official-careers-page"
+    }
+  ],
+
+  "mid": [
+    {
+      "name": "Company Name",
+      "role": "Relevant role",
+      "reason": "Why this company is relevant",
+      "careers_url": "https://official-careers-page"
+    }
+  ],
+
+  "small": [
+    {
+      "name": "Company Name",
+      "role": "Relevant role",
+      "reason": "Why this company is relevant",
+      "careers_url": "https://official-careers-page"
+    }
+  ],
+
+  "startups": [
+    {
+      "name": "Company Name",
+      "role": "Relevant role",
+      "reason": "Why this company is relevant",
+      "careers_url": "https://official-careers-page"
+    }
+  ]
+}
+
+Make sure each array contains EXACTLY 5 companies.
+
+For careers_url:
+- Use an official company careers page when known.
+- Never use LinkedIn jobs.
+- Never use Indeed.
+- Never use Glassdoor.
+- Never use Internshala.
+- Never use a generic Google search URL.
+
+If you are uncertain about a careers URL, use the company's
+official website rather than inventing a deep careers URL.
+`;
+
+
+    // ---------------- GROQ REQUEST ----------------
+
+    console.log(
+      "➡️ Finding companies for role:",
+      role
+    );
+
+
+    const completion =
+      await groq.chat.completions.create({
+
+        model: "openai/gpt-oss-120b",
+
+        messages: [
+
+          {
+            role: "system",
+
+            content:
+              "You are a company research assistant. Return only valid JSON."
+          },
+
+          {
+            role: "user",
+
+            content: prompt
+          }
+
+        ],
+
+        temperature: 0.2,
+
+        max_tokens: 5000
+
+      });
+
+
+    // ---------------- GET RESPONSE ----------------
+
+    let rawResponse =
+      completion.choices[0]
+        .message
+        .content
+        .trim();
+
+
+    // Remove markdown fences if AI adds them
+
+    rawResponse = rawResponse
+      .replace(/^```json\s*/i, "")
+      .replace(/^```\s*/i, "")
+      .replace(/\s*```$/i, "")
+      .trim();
+
+
+    // ---------------- PARSE JSON ----------------
+
+    let companiesData;
+
+    try {
+
+      companiesData =
+        JSON.parse(rawResponse);
+
+    } catch (parseError) {
+
+      console.error(
+        "❌ Company JSON Parse Error:"
+      );
+
+      console.error(rawResponse);
+
+      return res.status(500).json({
+
+        error:
+          "AI returned invalid company data. Please try again."
+
+      });
+
+    }
+
+
+    // ---------------- BASIC VALIDATION ----------------
+
+    const validStructure =
+      Array.isArray(companiesData.top) &&
+      Array.isArray(companiesData.mid) &&
+      Array.isArray(companiesData.small) &&
+      Array.isArray(companiesData.startups);
+
+
+    if (!validStructure) {
+
+      return res.status(500).json({
+
+        error:
+          "AI returned an unexpected company format."
+
+      });
+
+    }
+
+
+    // ---------------- SEND DATA ----------------
+
+    res.json(companiesData);
+
+
+  } catch (error) {
+
+    console.error(
+      "❌ Job Desk Company Finder Error:",
+      error.message
+    );
+
+
+    res.status(500).json({
+
+      error:
+        "Failed to find companies. Please try again."
+
+    });
+
+  }
+
+});
+
+
 // const PORT = 5000;
 app.listen(PORT, () => {
   console.log(`🚀 Server running at: http://localhost:${PORT}`);
